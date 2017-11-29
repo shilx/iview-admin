@@ -109,6 +109,7 @@ export default {
             if (this.beforePush(item)) {
                 this.$router.push(routerObj);
             }
+            this.$emit('updateNav',item.parent)
         },
         handlescroll (e) {
             var type = e.type;

@@ -32,7 +32,7 @@
                     </div>
                 </Col>
             </Row>
-            <Menu mode="horizontal" :theme="menuTheme" active-name="example" class="nav-bar">
+            <Menu mode="horizontal" :theme="menuTheme" :active-name="navName" class="nav-bar" @on-select="handleNavmenuChange">
                 <Row type="flex" justify="center" :gutter="40">
                     <Col>
                         <MenuItem name="example">
@@ -86,7 +86,7 @@
                 </div>
                 <div class="header-middle-con">
                     <div class="tags-con">
-                        <tags-page-opened :pageTagsList="pageTagsList"></tags-page-opened>
+                        <tags-page-opened @updateNav="handleNavmenuChange" :pageTagsList="pageTagsList"></tags-page-opened>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,8 @@
                 shrink: false,
                 userName: '',
                 isFullScreen: false,
-                openedSubmenuArr: this.$store.state.app.openedSubmenuArr
+                openedSubmenuArr: this.$store.state.app.openedSubmenuArr,
+                navName: 'example'
             };
         },
         computed: {
@@ -190,6 +191,10 @@
                 if (!openpageHasTag) {  //  解决关闭当前标签后再点击回退按钮会退到当前页时没有标签的问题
                     util.openNewPage(this, name, this.$route.params || {}, this.$route.query || {});
                 }
+            },
+            handleNavmenuChange (val) {
+                this.navName = val || 'example'
+                this.$store.commit('updateMenulist', this.navName);
             },
             handleSubmenuChange (val) {
                 // console.log(val)
