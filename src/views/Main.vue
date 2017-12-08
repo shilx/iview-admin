@@ -41,6 +41,12 @@
                         </MenuItem>
                     </Col>
                     <Col>
+                        <MenuItem name="task">
+                            <Icon type="ios-people"></Icon>
+                            首页
+                        </MenuItem>
+                    </Col>
+                    <Col>
                         <MenuItem name="loan">
                             <Icon type="ios-people"></Icon>
                             业务管理

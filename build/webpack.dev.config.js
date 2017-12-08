@@ -19,6 +19,20 @@ module.exports = merge(webpackBaseConfig, {
         filename: '[name].js',
         chunkFilename: '[name].chunk.js'
     },
+    devServer: {
+        port: 8080,
+        // host: '0.0.0.0',
+        proxy: {
+          '/api': {
+            target: 'http://172.19.5.23:5555/approval',
+            pathRewrite: {
+                '^/api' : ''
+            },
+            secure: false,
+            changeOrigin: true
+          }
+        }
+    },
     plugins: [
         new ExtractTextPlugin({
             filename: '[name].css',

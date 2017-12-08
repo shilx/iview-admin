@@ -11,16 +11,16 @@ util.title = function (title) {
     window.document.title = title;
 };
 
-const ajaxUrl = env === 'development'
-    ? 'http://127.0.0.1:8888'
-    : env === 'production'
-    ? 'https://www.url.com'
-    : 'https://debug.url.com';
+// const ajaxUrl = env === 'development'
+//     ? 'http://127.0.0.1:80'
+//     : env === 'production'
+//     ? 'https://www.url.com'
+//     : 'https://debug.url.com';
 
-util.ajax = axios.create({
-    baseURL: ajaxUrl,
-    timeout: 30000
-});
+// util.ajax = axios.create({
+//     baseURL: ajaxUrl,
+//     timeout: 30000
+// });
 
 util.inOf = function (arr, targetArr) {
     let res = true;
@@ -264,6 +264,30 @@ util.checkUpdate = function (vm) {
             });
         }
     });
+};
+
+util.filters = {
+    time: function (value, fmt) {
+        if (!value) {
+            return;
+        }
+        if (!fmt) {
+            fmt = 'yyyy-MM-dd';
+        }
+        let time = new Date(value);
+        let o = {
+            'M+': time.getMonth() + 1, // 月
+            'd+': time.getDate(),      // 日
+            'h+': time.getHours(),     // 小时
+            'm+': time.getMinutes(),   // 分
+            's+': time.getSeconds()    // 秒
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (time.getFullYear() + '').substr(4 - RegExp.$1.length));
+        for (var k in o) {
+            if (new RegExp('(' + k + ')').test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)));
+        }
+        return fmt;
+    }
 };
 
 export default util;
