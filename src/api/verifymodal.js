@@ -4,7 +4,7 @@ export default {
     getUserInfo: (data) => {
         return fetch({
             url: '/api/account/userView/',
-            method: 'post',
+            method: 'get',
             data
         });
     }

@@ -61,20 +61,20 @@
                 class-name="list-page">
             </Page>
         </Card>
-        <PerVmodal
-            ref="perModal"
+        <VerVmodal
+            ref="verModal"
             :comList="ModelComList"
             @child-open="openVModel">
-        </PerVmodal>
+        </VerVmodal>
     </div>
 </template>
 
 <script>
 import util from '@/libs/util';
-import PerVmodal from '../common/verify-modal.vue';
+import VerVmodal from '../verify-modal/index.vue';
 export default {
     components:{
-        PerVmodal
+        VerVmodal
     },
     data () {
         return {
@@ -194,7 +194,9 @@ export default {
             accountList: [],
             ModelComList:[
                 {
-                    comName: 'realname'
+                    comName: 'realname',
+                },{
+                    comName: 'identity'
                 }
             ]
         }
@@ -257,7 +259,7 @@ export default {
                         click: () => {
                             //打开弹窗
                             console.log(params)
-                            this.$refs.perModal.openModel(params.row)
+                            this.$refs.verModal.openModel(params.row)
                         }
                     }
                 }, '审核')

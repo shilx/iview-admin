@@ -4,7 +4,7 @@ import Vuex from 'vuex';
 import app from './modules/app';
 import user from './modules/user';
 import loan from './modules/loan';
-import common from './modules/common';
+import verifymodal from './modules/verifymodal';
 
 Vue.use(Vuex);
 
@@ -22,7 +22,7 @@ const store = new Vuex.Store({
         app,
         user,
         loan,
-        common
+        verifymodal
     }
 });
 

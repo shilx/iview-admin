@@ -26,39 +26,39 @@
             <Row type="flex" :gutter="16">
                 <Col span="6">
                     <FormItem label="会员ID：">
-                        <Input disabled v-model="userInfo.input" placeholder="Enter something..."></Input>
+                        <Input readonly v-model="userInfo.userId"></Input>
                     </FormItem>
                 </Col>
                 <Col span="6">
                     <FormItem label="用户名：">
-                        <Input disabled v-model="userInfo.input" placeholder="Enter something..."></Input>
+                        <Input readonly v-model="userInfo.nickname"></Input>
                     </FormItem>
                 </Col>
                 <Col span="6">
                     <FormItem label="姓名：">
-                        <Input disabled v-model="userInfo.input" placeholder="Enter something..."></Input>
+                        <Input readonly v-model="userInfo.realname"></Input>
                     </FormItem>
                 </Col>
                 <Col span="6">
                     <FormItem label="性别:">
-                        <Input disabled v-model="userInfo.input" placeholder="Enter something..."></Input>
+                        <Input readonly v-model="userInfo.gander"></Input>
                     </FormItem>
                 </Col>
             </Row>
             <Row type="flex" :gutter="16">
                 <Col span="6">
                     <FormItem label="手机：">
-                        <Input disabled v-model="userInfo.input" placeholder="Enter something..."></Input>
+                        <Input readonly v-model="userInfo.cellphone"></Input>
                     </FormItem>
                 </Col>
                 <Col span="6">
                     <FormItem label="身份证号：">
-                        <Input disabled v-model="userInfo.input" placeholder="Enter something..."></Input>
+                        <Input readonly v-model="userInfo.idNumber"></Input>
                     </FormItem>
                 </Col>
                 <Col span="6">
                     <FormItem label="出生年月：">
-                        <Input disabled v-model="userInfo.input" placeholder="Enter something..."></Input>
+                        <Input readonly v-model="userInfo.borth"></Input>
                     </FormItem>
                 </Col>
                 <Col span="6">
@@ -66,12 +66,17 @@
             </Row>
             <div class="id-card">
                 <div class="text">身份证正反面照片（<span class="origin">重传</span>）</div>
-                <img src="" alt="">
-                <img src="" alt="">
+                <img :src="userInfo.idPhoto1" alt="">
+                <img :src="userInfo.idPhoto2" alt="">
             </div>
             <div class="validity">
                 <div class="text">身份证有效期</div>
-                <DatePicker type="daterange" format="yyyy/MM/dd" placeholder="Select date and time" :transfer="true" style="width: 245px"></DatePicker>
+                <DatePicker
+                    type="daterange"
+                    format="yyyy/MM/dd"
+                    :transfer="true"
+                    style="width: 245px">
+                </DatePicker>
             </div>
         </Form>
     </div>
@@ -86,24 +91,44 @@ export default {
     data () {
         return {
             userInfo:{
-                input: 1
+                borth: "",
+                cellphone: "",
+                gander: "",
+                idNumber: "",
+                idPhoto1: undefined,
+                idPhoto2: undefined,
+                nickname: "",
+                realname: "",
+                userId: "",
             }
         }
     },
-    created(){
-        
+    beforeMount(){
+        console.log('beforeMount')
     },
-    computed: {
-        
+    mounted(){
+        console.log('mounted')
+    },
+    beforeUpdate(){
+        console.log('beforeUpdate')
+    },
+    updated(){
+        console.log('updated')
+    },
+    activated(){
+        console.log('activated')
+    },
+    deactivated(){
+        console.log('deactivated')
     },
     methods: {
-       getUserInfo() {
+       getInfo() {
            const send = {
                 userId: this.record.userId
             }
             console.log(send)
             this.$store.dispatch('getUserInfo', send).then((res) => {
-                console.log(res)
+                this.userInfo = res
             }).catch(error => {
                 this.tableLoading = false
                 this.$Message.error('请求失败')

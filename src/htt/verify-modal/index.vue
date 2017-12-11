@@ -10,8 +10,8 @@
             v-model="isOpen"
             class-name="verify-modal">
             <Tabs type="card" :animated="false">
-                <TabPane v-for="com in comList" :key="com.name" :label="com.name">
-                    <component :is="com.component" :record="record"></component>
+                <TabPane v-for="com in comList" :key="com.txtName" :label="com.txtName">
+                    <component :ref="com.comName" :is="com.component" :record="record"></component>
                 </TabPane>
                 <TabPane label="工作日志记录" class="content">
                     <p class="tit">工作历史记录</p>
@@ -46,14 +46,16 @@
 </template>
 
 <script>
-import RealName from '../common/real-name.vue';
+import RealName from './component/real-name.vue';
+import Identity from './component/identity.vue';
 export default {
     props: {
         refs: String,
         comList: Array
     },
     components: {
-        RealName
+        RealName,
+        Identity
     },
     data () {
         return {
@@ -110,7 +112,11 @@ export default {
             switch (element.comName) {
                 case 'realname':
                     element.component = RealName
-                    element.name = '实名开户详情'
+                    element.txtName = '实名开户详情'
+                    break;
+                case 'identity':
+                    element.component = Identity
+                    element.txtName = '身份审核'
                     break;
             
                 default:
@@ -118,13 +124,15 @@ export default {
             }
         });
     },
-    computed: {
-        
-    },
     methods: {
         openModel(data) {
-            this.isOpen = true
             this.record = data
+            this.isOpen = true
+            this.$nextTick(function () {
+                this.comList.forEach(element => {
+                    this.$refs[element.comName][0].getInfo()
+                })
+            })
         },
         confirm() {
             this.isOpen = false

@@ -1,8 +1,8 @@
 import axios from 'axios';
 // import store from '../store';
-import router from '../router';
+// import router from '../router';
 import env from '../../build/env';
-// import qs from 'qs';
+import qs from 'qs';
 
 const baseURL = env === 'development'
 ? 'http://127.0.0.1:8080'
@@ -13,9 +13,9 @@ const baseURL = env === 'development'
 export default function fetch (options) {
     return new Promise((resolve, reject) => {
         const instance = axios.create({
-            headers: { 'Content-Type': 'application/json' },
+            // headers: { 'Content-Type': 'application/json' },
             baseURL: baseURL,
-            timeout: 1000
+            timeout: 5000
         });
 
         instance.interceptors.request.use(config => {
@@ -23,13 +23,14 @@ export default function fetch (options) {
             //     // 序列化
             //     config.data = qs.stringify(config.data);
             // }
-
+            if (config.method === 'get') {
+                config.url += '?' + qs.stringify(config.data);
+            }
             // let token = store.getters.token;
             // // 判断是否存在token，如果存在的话，则每个http header都加上token
             // if (token) {
             //     config.headers.token = token;
             // }
-            console.log('fetch config:', config);
             return config;
         }, error => {
             return Promise.reject(error);
@@ -44,19 +45,18 @@ export default function fetch (options) {
 
         instance(options).then(response => {
             const res = response.data;
-            if (res.code === '200') {
+            if (res.code === 200) {
                 resolve(res.result);
             } else {
-                reject(res.message);
+                reject(res.statusText);
             }
         }).catch(error => {
-            reject(error);
-            // if (!error.response) {
-            //     reject('网络请求超时，请重试。');
-            //     router.replace({ path: '/timeout' });
-            // } else {
-            //     reject(`网络不给力，请重试(${error.response.status})`);
-            // }
+            // reject(error);
+            if (!error.result) {
+                reject(new Error('网络请求超时，请重试。'));
+            } else {
+                reject(new Error(`网络不给力，请重试(${error.status})`));
+            }
             // if (error.response.status === 404) {
             //     router.replace({ path: '/error/404' });
             // }

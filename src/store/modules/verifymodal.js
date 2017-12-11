@@ -1,7 +1,7 @@
 // import * as types from '../mutation-types';
-import Api from '../../api/common';
+import Api from '../../api/verifymodal';
 
-const loan = {
+const verifymodal = {
     state: {
         // list: []
     },
@@ -26,4 +26,4 @@ const loan = {
     }
 };
 
-export default loan;
+export default verifymodal;
