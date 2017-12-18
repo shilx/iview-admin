@@ -30,16 +30,19 @@ export default {
                         type: 'shadow'
                     }
                 },
+                legend: {
+                    data: ['Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun']
+                },
                 grid: {
-                    top: 0,
-                    left: '2%',
-                    right: '4%',
-                    bottom: '3%',
-                    containLabel: true
+                    // top: 80,
+                    // left: '2%',
+                    // right: '4%',
+                    // bottom: '3%',
+                    // containLabel: true
                 },
                 yAxis: {
                     type: 'value',
-                    boundaryGap: [0, 0.01]
+                    // boundaryGap: [0, 0.01]
                 },
                 xAxis: {
                     type: 'category',

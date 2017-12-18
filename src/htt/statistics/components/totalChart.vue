@@ -31,7 +31,7 @@ export default {
                     }
                 },
                 grid: {
-                    top: 0,
+                    top: '3%',
                     left: '2%',
                     right: '4%',
                     bottom: '3%',

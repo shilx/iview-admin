@@ -55,6 +55,18 @@ export default {
             type: Array
         }
     },
+    updated(){
+        this.menuList.forEach(element => {
+            if(element.name === 'task'){
+                //首页显示徽标，将徽标数传入子组件
+                this.$set(element,'num',10)
+                element.children.forEach(item => {
+                    this.$set(item,'num',5)
+                })
+            }
+        })
+        console.log(this.menuList)
+    },
     computed: {
         bgColor () {
             return this.theme === 'dark' ? '#495060' : '#fff';

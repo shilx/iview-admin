@@ -132,7 +132,7 @@ html,body{
     .layout-text{
         display: inline-block;
         white-space:nowrap;
-        position: absolute;
+        // position: absolute;
     }
     .main-hide-text .layout-text{
         display: none;
@@ -219,7 +219,7 @@ html,body{
         z-index: 1;
         transition: left .3s;
         .single-page{
-            margin: 10px;
+            margin: 10px 8px 8px;
         }
     }
     &-copy{
@@ -235,18 +235,18 @@ html,body{
 @tabs-bd: 1px solid #dddee1;
 @main-pd: 0 36px;
 @box:content;
-.verify-modal{
-    .ivu-tabs{
-        margin-bottom: 8px;
-        .ivu-tabs-bar{
-            margin-bottom: 0;
-        }
-        .ivu-tabs-tabpane{
-            border-left: @tabs-bd;
-            border-right: @tabs-bd;
-            border-bottom: @tabs-bd;
-        }
+.ivu-tabs{
+    margin-bottom: 8px;
+    .ivu-tabs-bar{
+        margin-bottom: 0;
     }
+    .ivu-tabs-tabpane{
+        border-left: @tabs-bd;
+        border-right: @tabs-bd;
+        border-bottom: @tabs-bd;
+    }
+}
+.verify-modal{
     .@{box}{
         padding: 24px 36px;
         .tit{
@@ -273,4 +273,14 @@ html,body{
             width: 96px;
         }
     }
+}
+//用户组管理
+.user-group{
+    .ivu-card-body{
+        padding: 0;
+    }
+}
+//系统设置弹框主体
+.level-model{
+    padding: 16px;
 }

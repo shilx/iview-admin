@@ -4,6 +4,7 @@ import Task from './routers/task.js';
 import Loan from './routers/loan.js';
 import Member from './routers/member.js';
 import Statistics from './routers/statistics.js';
+import Setting from './routers/setting.js';
 
 // 不作为Main组件的子页面展示的页面单独写，如下
 export const loginRouter = {
@@ -71,8 +72,7 @@ export const otherRouter = {
 
 // 为每个路由对象设置从属
 let appRouters = [];
-// [Example, Task, Loan, Member, Statistics].forEach(x => {
-[Task, Loan, Member, Statistics].forEach(x => {
+[Example, Task, Loan, Member, Statistics, Setting].forEach(x => {
     let routerName = x.name;
     x.router.forEach(y => {
         y.parent = routerName;
@@ -80,7 +80,6 @@ let appRouters = [];
         if (y.hasOwnProperty('children')) {
             y.children.forEach(z => {
                 z.parent = routerName;
-                console.log(z)
             });
         }
     });

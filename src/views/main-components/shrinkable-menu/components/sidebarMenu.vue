@@ -14,11 +14,13 @@
                 <template slot="title">
                     <Icon :type="item.icon" :size="iconSize"></Icon>
                     <span class="layout-text">{{ itemTitle(item) }}</span>
+                    <Badge v-if="item.num" :count="item.num" :key="item.path"></Badge>                    
                 </template>
                 <template v-for="child in item.children">
                     <MenuItem :name="child.name" :key="child.name">
                         <Icon :type="child.icon" :size="iconSize" :key="child.name"></Icon>
                         <span class="layout-text" :key="child.name">{{ itemTitle(child) }}</span>
+                        <Badge v-if="child.num" :count="child.num" :key="child.name"></Badge>
                     </MenuItem>
                 </template>
             </Submenu>
@@ -53,6 +55,7 @@ export default {
         }
     },
     updated () {
+        console.log(this.menuList)
         this.$nextTick(() => {
             if (this.$refs.sideMenu) {
                 this.$refs.sideMenu.updateOpened();

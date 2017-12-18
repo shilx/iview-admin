@@ -70,6 +70,12 @@
                             数据统计
                         </MenuItem>
                     </Col>
+                    <Col>
+                        <MenuItem name="setting">
+                            <Icon type="settings"></Icon>
+                            系统设置
+                        </MenuItem>
+                    </Col>
                 </Row>
             </Menu>
         </div>

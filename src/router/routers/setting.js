@@ -10,22 +10,22 @@ const setting = {
             title: '系统设置',
             children: [
                 {
-                    path: '/user-group',
+                    path: 'user-group',
                     title: '用户组管理',
                     name: 'user-group',
-                    component: createRoute('level/user-group')
+                    component: createRoute('setting/level/user-group')
                 },
                 {
-                    path: '/role',
+                    path: 'role',
                     title: '角色管理',
                     name: 'role',
-                    component: createRoute('level/role')
+                    component: createRoute('setting/level/role')
                 },
                 {
-                    path: '/user',
+                    path: 'user',
                     title: '用户管理',
                     name: 'user',
-                    component: createRoute('level/user')
+                    component: createRoute('setting/level/user')
                 }
             ]
         },
@@ -36,28 +36,28 @@ const setting = {
             title: '排班管理',
             children: [
                 {
-                    path: '/verify-per',
+                    path: 'verify-per',
                     title: '个人审核排班',
                     name: 'verify-per',
-                    component: createRoute('work/verify-per')
+                    component: createRoute('setting/work/verify-per')
                 },
                 {
-                    path: '/verify-cop',
+                    path: 'verify-cop',
                     title: '企业审核排班',
                     name: 'verify-cop',
-                    component: createRoute('work/verify-cop')
+                    component: createRoute('setting/work/verify-cop')
                 },
                 {
-                    path: '/overdue',
+                    path: 'overdue',
                     title: '逾期排班',
                     name: 'overdue',
-                    component: createRoute('work/overdue')
+                    component: createRoute('setting/work/overdue')
                 },
                 {
-                    path: '/customer-service',
+                    path: 'customer-service',
                     title: '客服排班',
                     name: 'customer-service',
-                    component: createRoute('work/customer-service')
+                    component: createRoute('setting/work/customer-service')
                 }
             ]
         },
@@ -68,16 +68,16 @@ const setting = {
             title: '账号管理',
             children: [
                 {
-                    path: '/info',
+                    path: 'info',
                     title: '个人信息',
                     name: 'info',
-                    component: createRoute('account/info')
+                    component: createRoute('setting/account/info')
                 },
                 {
-                    path: '/password',
+                    path: 'password',
                     title: '密码修改',
                     name: 'password',
-                    component: createRoute('account/password')
+                    component: createRoute('setting/account/password')
                 }
             ]
         }

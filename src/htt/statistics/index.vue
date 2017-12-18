@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="less" scoped>
 .statistics{
     .count{
         padding-top: 10px;
@@ -54,6 +54,7 @@
         }
         .bottom{
             padding-top: 16px;
+            height: 420px;
         }
     }
     .total{
@@ -203,54 +204,82 @@ export default {
             accountCol: [
                 {
                     title: '姓名',
+                    width: 200,
                     key: 'name',
+                    fixed: 'left'
                 },
                 {
                     title: '重置支付密码',
+                    width: 200,
                     key: 'resetpaypw',
                 },
                 {
                     title: '重置登录密码',
+                    width: 200,
                     key: 'resetloginpw',
                 },
                 {
                     title: '重置密保问题',
+                    width: 200,
                     key: 'resetq',
                 },
                 {
                     title: '重传身份证',
+                    width: 200,
                     key: 'resfz',
                 },
                 {
                     title: '重传手持身份证',
+                    width: 200,
                     key: 'rehandfz',
                 },
                 {
                     title: '重置手机',
+                    width: 200,
                     key: 'rephone',
                 },
                 {
                     title: '登录解锁',
+                    width: 200,
                     key: 'loginunlock',
                 },
                 {
                     title: '支付解锁',
+                    width: 200,
                     key: 'payun',
                 },
                 {
                     title: '找回支付密码',
+                    width: 200,
                     key: 'findpw',
                 },
                 {
                     title: '总次数',
-                    key: 'total',
+                    width: 200,
+                    key: 'total'
                 }
             ],
             accountList: [],
         };
     },
-    computed: {
-        
+    created() {
+        let list = []
+        for (let index = 0; index < 10; index++) {
+            list.push({
+                name: 1,
+                resetpaypw: 1,
+                resetloginpw: 1,
+                resetq: 1,
+                resfz: 1,
+                rehandfz: 1,
+                rephone: 1,
+                loginunlock: 1,
+                payun: 1,
+                findpw: 1,
+                total: 1
+            })
+        }
+        this.accountList = list
     },
     methods: {
         handleSubmit() {
