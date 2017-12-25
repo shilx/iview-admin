@@ -1,8 +1,5 @@
 <style lang="less" scoped>
-    .list-page{
-        text-align: center;
-        padding-top: 16px;
-    }
+    
 </style>
 
 <template>

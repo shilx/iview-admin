@@ -109,6 +109,7 @@
                     <router-view></router-view>
                 </keep-alive>
             </div>
+            <copy-right></copy-right>
         </div>
     </div>
 </template>
@@ -119,6 +120,7 @@
     import lockScreen from './main-components/lockscreen/lockscreen.vue';
     import messageTip from './main-components/message-tip.vue';
     import themeSwitch from './main-components/theme-switch/theme-switch.vue';
+    import copyRight from '@/htt/copy-right'
     import Cookies from 'js-cookie';
     import util from '@/libs/util.js';
     
@@ -129,7 +131,8 @@
             fullScreen,
             lockScreen,
             messageTip,
-            themeSwitch
+            themeSwitch,
+            copyRight
         },
         data () {
             return {

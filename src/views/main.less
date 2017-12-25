@@ -1,5 +1,13 @@
+.list-page{
+    text-align: center;
+    padding-top: 16px;
+}
 .origin{
     color: #fe0000;
+}
+.wide-btn{
+    width: 96px;
+    height: 34px;
 }
 html,body{
     width: 100%;
@@ -240,10 +248,11 @@ html,body{
     .ivu-tabs-bar{
         margin-bottom: 0;
     }
-    .ivu-tabs-tabpane{
+    .ivu-tabs-content{
         border-left: @tabs-bd;
         border-right: @tabs-bd;
         border-bottom: @tabs-bd;
+        background-color: white;
     }
 }
 .verify-modal{
@@ -283,4 +292,10 @@ html,body{
 //系统设置弹框主体
 .level-model{
     padding: 16px;
+}
+//排班管理
+.no-bd-tabs{
+    .ivu-tabs-content{
+        border: 0;
+    }
 }

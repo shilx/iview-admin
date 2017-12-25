@@ -44,10 +44,12 @@
                         <FormItem prop="realname" label="姓名">
                             <Input style="width: 110px;" type="text" v-model="accountForm.realname" placeholder="用户名"></Input>
                         </FormItem>
-                        <FormItem label="1">
+                        <FormItem>
+                            <div slot="label">&nbsp;</div>
                             <Button style="width: 82px; height: 34px" type="primary" @click="handleSubmit('accountForm')">搜索</Button>
                         </FormItem>
-                        <FormItem label="1">
+                        <FormItem>
+                            <div slot="label">&nbsp;</div>
                             <Button style="width: 82px; height: 34px;margin-left:8px" @click="handleReset('accountForm')">清空</Button>
                         </FormItem>
                     </Form>
@@ -75,7 +77,7 @@
 </template>
 
 <script>
-    import userGroupModal from './user-group-modal';
+    import userGroupModal from './component/user-group-modal';
     export default {
         components: {
             userGroupModal
@@ -113,11 +115,10 @@
                                         },
                                         on: {
                                             click: () => {
-                                                this.resetModal()
                                                 //添加部门
-                                                this.modalData.title = '添加分组'
-                                                this.modalData.name = '部门机构'
-                                                this.$refs.userGroupModal.newGroupModal = true
+                                                this.resetModal()
+                                                this.modalData.type = 0
+                                                this.$refs.userGroupModal.modalOpen = true
                                             }
                                         }
                                     })
@@ -218,75 +219,22 @@
                 pageTotal: 10,
                 pageCurrent: 1,
                 pageSize: 30,
-                newGroupModal: false,
+                modalOpen: false,
                 modalData: {
+                    type: -1,
                     parent: '',
                     title: '',
                     name: '',
                     nameRdol: true,
-                    position: '1',
-                    rank: '',
-                    checkbox: [],
+                    rank: ''
                 }
             }
         },
         methods: {
             renderContent (h, { root, node, data }) {
                 let buttonArray = []
-                if(node.parent < 1){
-                    buttonArray = [
-                        h('Button', {
-                            props: Object.assign({}, this.buttonProps, {
-                                icon: 'plus'
-                            }),
-                            style: {
-                                marginRight: '4px'
-                            },
-                            on: {
-                                click: () => {
-                                    this.append(data)
-                                }
-                            }
-                        }),
-                        h('Button', {
-                            props: Object.assign({}, this.buttonProps, {
-                                icon: 'minus'
-                            }),
-                            style: {
-                                marginRight: '4px'
-                            },
-                            on: {
-                                click: () => { this.remove(root, node, data) }
-                            }
-                        }),
-                        h('Button', {
-                            props: Object.assign({}, this.buttonProps, {
-                                icon: 'wrench'
-                            }),
-                            on: {
-                                click: () => { console.log(root, node, data) }
-                            }
-                        })
-                    ]
-                }
-                return h('div', {
-                    style: {
-                        display: 'inline-block',
-                        width: '100%'
-                    }
-                }, [
-                    h('span', {
-                        'class': {
-                            'ivu-tree-title': true
-                        }
-                    }, data.title),
-                    h('span', {
-                        style: {
-                            display: 'inline-block',
-                            float: 'right',
-                            marginRight: '8px'
-                        }
-                    }, [
+                if(node.parent == 0){
+                    buttonArray.push(
                         h('Button', {
                             //添加下级
                             props: Object.assign({}, this.buttonProps, {
@@ -297,35 +245,56 @@
                             },
                             on: {
                                 click: () => {
-                                    //添加部门
-                                    this.$refs.userGroupModal.newGroupModal = true
-                                }
-                            }
-                        }),
-                        h('Button', {
-                            //删除本级
-                            props: Object.assign({}, this.buttonProps, {
-                                icon: 'minus'
-                            }),
-                            style: {
-                                marginRight: '4px'
-                            },
-                            on: {
-                                click: () => { this.remove(root, node, data) }
-                            }
-                        }),
-                        h('Button', {
-                            //设置权限
-                            props: Object.assign({}, this.buttonProps, {
-                                icon: 'wrench'
-                            }),
-                            on: {
-                                click: () => { 
-                                    this.newGroupModal = true 
+                                    //添加小组
+                                    this.resetModal()
+                                    this.modalData.parent = node.node.title
+                                    this.modalData.type = 1
+                                    this.$refs.userGroupModal.modalOpen = true
                                 }
                             }
                         })
-                    ])
+                    )
+                }
+                buttonArray.push([
+                    h('Button', {
+                        //删除本级
+                        props: Object.assign({}, this.buttonProps, {
+                            icon: 'minus'
+                        }),
+                        style: {
+                            marginRight: '4px'
+                        },
+                        on: {
+                            click: () => { this.remove(root, node, data) }
+                        }
+                    }),
+                    h('Button', {
+                        //设置权限
+                        props: Object.assign({}, this.buttonProps, {
+                            icon: 'wrench'
+                        }),
+                        on: {
+                            click: () => { 
+                                this.modalData.type = 2
+                                this.$refs.userGroupModal.modalOpen = true
+                            }
+                        }
+                    })
+                ])
+                return h('div', {
+                    style: {
+                        display: 'inline-block',
+                        width: '100%'
+                    }
+                }, [
+                    h('span', data.title),
+                    h('span', {
+                        style: {
+                            display: 'inline-block',
+                            float: 'right',
+                            marginRight: '8px'
+                        }
+                    }, buttonArray)
                 ]);
             },
             append (data) {
@@ -385,13 +354,12 @@
             },
             resetModal() {
                 this.modalData = {
+                    type: -1,
                     parent: '',
                     title: '',
                     name: '',
                     nameRdol: true,
-                    position: '1',
-                    rank: '',
-                    checkbox: [],
+                    rank: ''
                 }
             }
         }

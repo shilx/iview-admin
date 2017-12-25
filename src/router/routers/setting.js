@@ -36,28 +36,28 @@ const setting = {
             title: '排班管理',
             children: [
                 {
-                    path: 'verify-per',
+                    path: 'person',
                     title: '个人审核排班',
-                    name: 'verify-per',
-                    component: createRoute('setting/work/verify-per')
+                    name: 'person',
+                    component: createRoute('setting/work/schedule-person')
                 },
                 {
                     path: 'verify-cop',
                     title: '企业审核排班',
                     name: 'verify-cop',
-                    component: createRoute('setting/work/verify-cop')
+                    component: createRoute('setting/work/schedule-company')
                 },
                 {
                     path: 'overdue',
                     title: '逾期排班',
                     name: 'overdue',
-                    component: createRoute('setting/work/overdue')
+                    component: createRoute('setting/work/schedule-overdue')
                 },
                 {
-                    path: 'customer-service',
+                    path: 'kf',
                     title: '客服排班',
-                    name: 'customer-service',
-                    component: createRoute('setting/work/customer-service')
+                    name: 'kf',
+                    component: createRoute('setting/work/schedule-kf')
                 }
             ]
         },
