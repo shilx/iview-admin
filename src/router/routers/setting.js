@@ -30,34 +30,34 @@ const setting = {
             ]
         },
         {
-            path: '/work',
+            path: '/schedule',
             icon: 'person',
-            name: 'work',
+            name: 'schedule',
             title: '排班管理',
             children: [
                 {
                     path: 'person',
                     title: '个人审核排班',
-                    name: 'person',
-                    component: createRoute('setting/work/schedule-person')
+                    name: 'schedule-person',
+                    component: createRoute('setting/schedule/person')
                 },
                 {
-                    path: 'verify-cop',
+                    path: 'company',
                     title: '企业审核排班',
-                    name: 'verify-cop',
-                    component: createRoute('setting/work/schedule-company')
+                    name: 'schedule-company',
+                    component: createRoute('setting/schedule/company')
                 },
                 {
                     path: 'overdue',
                     title: '逾期排班',
-                    name: 'overdue',
-                    component: createRoute('setting/work/schedule-overdue')
+                    name: 'schedule-overdue',
+                    component: createRoute('setting/schedule/overdue')
                 },
                 {
                     path: 'kf',
                     title: '客服排班',
-                    name: 'kf',
-                    component: createRoute('setting/work/schedule-kf')
+                    name: 'schedule-kf',
+                    component: createRoute('setting/schedule/kf')
                 }
             ]
         },
