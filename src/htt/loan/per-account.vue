@@ -68,7 +68,7 @@
 
 <script>
 import util from '@/libs/util';
-import VerVmodal from '../verify-modal/index.vue';
+import VerVmodal from './component/verify-modal/index.vue';
 export default {
     components:{
         VerVmodal
@@ -205,7 +205,13 @@ export default {
         getList() {
             this.tableLoading = true
             const send = {
-                ...this.accountForm,
+                userId: this.userId,
+                name: this.name,
+                cellphone: this.cellphone,
+                idNumber: this.idNumber,
+                operatorName: this.operatorName,
+                accountStatusCode: this.accountStatusCode,
+                identityStatusCode: this.identityStatusCode,
                 pageNumber: this.pageCurrent - 1,
                 pageSize: this.pageSize
             }

@@ -71,7 +71,7 @@
                         </MenuItem>
                     </Col>
                     <Col>
-                        <MenuItem name="setting">
+                        <MenuItem name="system">
                             <Icon type="settings"></Icon>
                             系统设置
                         </MenuItem>

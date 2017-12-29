@@ -4,7 +4,7 @@ import Task from './routers/task.js';
 import Loan from './routers/loan.js';
 import Member from './routers/member.js';
 import Statistics from './routers/statistics.js';
-import Setting from './routers/setting.js';
+import System from './routers/system.js';
 
 // 不作为Main组件的子页面展示的页面单独写，如下
 export const loginRouter = {
@@ -72,7 +72,7 @@ export const otherRouter = {
 
 // 为每个路由对象设置从属
 let appRouters = [];
-[Example, Task, Loan, Member, Statistics, Setting].forEach(x => {
+[Example, Task, Loan, Member, Statistics, System].forEach(x => {
     let routerName = x.name;
     x.router.forEach(y => {
         y.parent = routerName;
@@ -100,3 +100,6 @@ export const routers = [
     page403,
     page404
 ];
+/**
+ * 路由修改后需要清除local Storage
+ */
