@@ -32,6 +32,13 @@ module.exports = merge(webpackBaseConfig, {
             changeOrigin: true
           }
         }
+    module: {
+        rules: [
+            {
+                test: /\.ejs$/,
+                loader: 'html-loader'
+            }
+        ]
     },
     plugins: [
         new ExtractTextPlugin({

@@ -289,5 +289,17 @@ util.filters = {
         return fmt;
     }
 };
+// util.onWheel = function (ele, callback) {
+//     ele.addEventListener('mousewheel', function (e) {
+//         callback(e, e.wheelDelta);
+//     });
+//     ele.addEventListener('DOMMouseScroll', function (e) {
+//         callback(e, e.detail * 40);
+//     });
+// };
+
+// util.offWheel = function (ele, callback) {
+//     ele.removeEventListener('mousewheel', callback)
+// }
 
 export default util;
