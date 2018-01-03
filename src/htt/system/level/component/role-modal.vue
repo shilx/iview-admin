@@ -9,7 +9,6 @@
 }
 </style>
 
-
 <template>
     <div>
         <Modal v-model="modalOpen" width="592">
