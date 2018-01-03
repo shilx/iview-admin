@@ -32,6 +32,7 @@ module.exports = merge(webpackBaseConfig, {
             changeOrigin: true
           }
         }
+    },
     module: {
         rules: [
             {
