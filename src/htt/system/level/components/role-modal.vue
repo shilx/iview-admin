@@ -48,8 +48,7 @@
                 </Form>
             </div>
             <div slot="footer">
-                <Button @click="cancel" class="wide-btn">取消</Button>
-                <Button @click="submit" type="success" class="wide-btn">确定</Button>
+                <modal-footer v-on:onConfirm="submit" v-on:onCancel="cancel"></modal-footer>
             </div>
         </Modal>
         <Modal
@@ -65,8 +64,12 @@
 </template>
 
 <script>
+import modalFooter from '@/htt/components/modal-footer'
 export default {
     name: 'user-group-modal',
+    components: {
+        modalFooter
+    },
     props: {
         // formData: {
         //     type: Number, // 0:添加部门;1:添加分组;2设置权限

@@ -112,8 +112,7 @@
                 </Form>
             </div>
             <div slot="footer">
-                <Button @click="cancel" class="wide-btn">取消</Button>
-                <Button @click="submit" type="success" class="wide-btn">确定</Button>
+                <modal-footer v-on:onConfirm="close" v-on:onCancel="close"></modal-footer>
             </div>
         </Modal>
         <Modal
@@ -128,22 +127,40 @@
                     <Option value="4">已上线</Option>
                 </Select>
             </div>
+            <div slot="footer">
+                <modal-footer v-on:onConfirm="confirmChange" v-on:onCancel="changeModal = false"></modal-footer>
+            </div>
         </Modal>
         <Modal
             v-model="typeModal"
-            title="角色详情"
+            title="添加产品类型"
             width="592">
-            <Table stripe :columns="accountCol" :data="accountList"></Table>
+            <Form :model="formRight" label-position="right" :label-width="200">
+                 <FormItem label="产品名称：">
+                    <Input v-model="formRight.input1" style="width:192px"></Input>
+                </FormItem>
+                <FormItem label="描述：">
+                    <Input
+                        v-model="formRight.desc"
+                        type="textarea"
+                        style="width:192px"
+                        :autosize="{minRows: 3,maxRows: 5}"></Input>
+                </FormItem>
+            </Form>
             <div slot="footer">
-                <Button @click="closeInfo">关闭</Button>
+                <modal-footer v-on:onConfirm="typeModal = false" v-on:onCancel="typeModal = false"></modal-footer>
             </div>
         </Modal>
     </div>
 </template>
 
 <script>
+import modalFooter from '@/htt/components/modal-footer'
 export default {
     name: 'product-modal',
+    components: {
+        modalFooter
+    },
     data (){
         return {
             addModal: false,
@@ -153,6 +170,9 @@ export default {
             formData: {
                 rank:1,
                 access: ['个人借款审核']
+            },
+            formRight:{
+
             },
             accountCol: [
                     {
@@ -196,11 +216,15 @@ export default {
         
     },
     methods: {
-        cancel() {
+        close() {
             this.addModal = false;
         },
         submit() {
             //储存时注意父子组件传参
+        },
+        confirmChange(){
+            console.log('确认修改状态')
+            this.changeModal = false
         },
         positionAdd() {
             this.position.push({

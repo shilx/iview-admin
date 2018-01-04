@@ -56,7 +56,7 @@
 </template>
 
 <script>
-    import roleModal from './component/role-modal';
+    import roleModal from './components/role-modal';
     export default {
         components: {
             roleModal

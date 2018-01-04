@@ -56,7 +56,7 @@
 </template>
 
 <script>
-    import userModal from './component/user-modal';
+    import userModal from './components/user-modal';
     export default {
         components: {
             userModal

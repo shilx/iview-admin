@@ -77,7 +77,7 @@
 </template>
 
 <script>
-    import userGroupModal from './component/user-group-modal';
+    import userGroupModal from './components/user-group-modal';
     export default {
         components: {
             userGroupModal

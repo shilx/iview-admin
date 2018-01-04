@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import schedule from './component/audit-scheduling'
+import schedule from './components/audit-scheduling'
 export default {
     name: 'schedule-kf',
     components: {

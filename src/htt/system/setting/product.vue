@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import productModal from './component/product-modal.vue';
+import productModal from './components/product-modal.vue';
 export default {
     name: '',
     components: {

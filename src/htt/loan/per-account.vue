@@ -68,7 +68,7 @@
 
 <script>
 import util from '@/libs/util';
-import VerVmodal from './component/verify-modal/index.vue';
+import VerVmodal from './components/verify-modal/index.vue';
 export default {
     components:{
         VerVmodal
