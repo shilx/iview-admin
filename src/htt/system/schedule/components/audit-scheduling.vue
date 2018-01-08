@@ -2,9 +2,6 @@
     .white{
         background-color: white;
     }
-    .pd16{
-        padding: 16px;
-    }
     .ivu-tabs{
         margin-bottom: 0;
     }

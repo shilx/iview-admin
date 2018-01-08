@@ -9,9 +9,6 @@
 .text-r{
     text-align: right;
 }
-.pd16{
-    padding: 16px;
-}
 .pdb16{
     padding-bottom: 16px;
 }
