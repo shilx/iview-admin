@@ -190,7 +190,7 @@ util.openNewPage = function (vm, name, argu, query) {
     let i = 0;
     let tagHasOpened = false;
     while (i < openedPageLen) {
-        if (name === pageOpenedList[i].name) {  // 页面已经打开
+        if (name === pageOpenedList[i].name) { // 页面已经打开
             vm.$store.commit('pageOpenedList', {
                 index: i,
                 argu: argu,
@@ -222,6 +222,15 @@ util.openNewPage = function (vm, name, argu, query) {
         }
     }
     vm.$store.commit('setCurrentPageName', name);
+};
+
+util.setNavList = function (vm, navList) {
+    // vm.$store.commit('setNavList', navList);
+    console.log(vm,navList)
+};
+
+util.setNavOpen = () => {
+    
 };
 
 util.toDefaultPage = function (routers, name, route, next) {

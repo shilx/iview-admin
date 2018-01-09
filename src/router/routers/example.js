@@ -1,5 +1,7 @@
 const example = {
     name: 'example',
+    title: '官方示例',
+    icon: 'ios-paper',
     router: [{
         path: '/access',
         icon: 'key',

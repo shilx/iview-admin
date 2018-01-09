@@ -25,6 +25,8 @@ const app = {
             }
         ], // 面包屑数组
         menuList: [],
+        navList: [],
+        navOpen: 'example',
         routers: [
             otherRouter,
             ...appRouter
@@ -166,6 +168,9 @@ const app = {
         },
         setOpenedList (state) {
             state.pageOpenedList = localStorage.pageOpenedList ? JSON.parse(localStorage.pageOpenedList) : [otherRouter.children[0]];
+        },
+        setNavList (state, list) {
+            state.navList = list;
         },
         setCurrentPath (state, pathArr) {
             state.currentPath = pathArr;

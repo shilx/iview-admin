@@ -53,7 +53,9 @@ router.beforeEach((to, from, next) => {
     }
 });
 
-router.afterEach((to) => {
+router.afterEach((to, from) => {
+    // console.log('路由结束', to, from);
+    // Util.setTopMenu()
     Util.openNewPage(router.app, to.name, to.params, to.query);
     iView.LoadingBar.finish();
     window.scrollTo(0, 0);

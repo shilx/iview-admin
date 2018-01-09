@@ -2,6 +2,8 @@ import createRoute from '../create';
 
 const system = {
     name: 'system',
+    title: '系统设置',
+    icon: 'ios-paper',
     router: [
         {
             path: '/level',

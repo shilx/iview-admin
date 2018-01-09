@@ -2,6 +2,8 @@ import createRoute from '../create';
 
 const statistics = {
     name: 'statistics',
+    title: '数据统计',
+    icon: 'ios-paper',
     router: [{
         path: '/statistics',
         icon: 'person',

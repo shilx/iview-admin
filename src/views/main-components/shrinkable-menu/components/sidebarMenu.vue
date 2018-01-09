@@ -54,7 +54,7 @@ export default {
         }
     },
     updated () {
-        console.log(this.menuList)
+        // console.log(this.menuList)
         this.$nextTick(() => {
             if (this.$refs.sideMenu) {
                 this.$refs.sideMenu.updateOpened();

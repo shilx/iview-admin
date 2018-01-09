@@ -2,6 +2,8 @@ import createRoute from '../create';
 
 const task = {
     name: 'task',
+    title: '首页',
+    icon: 'ios-paper',
     router: [{
         path: '/task',
         icon: 'person',

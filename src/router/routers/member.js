@@ -2,6 +2,8 @@ import createRoute from '../create';
 
 const member = {
     name: 'member',
+    title: '会员管理',
+    icon: 'ios-paper',
     router: [{
         path: '/member',
         icon: 'person',

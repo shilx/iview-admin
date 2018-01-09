@@ -65,7 +65,7 @@ export default {
                 })
             }
         })
-        console.log(this.menuList)
+        // console.log(this.menuList)
     },
     computed: {
         bgColor () {

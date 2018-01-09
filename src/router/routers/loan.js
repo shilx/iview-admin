@@ -2,6 +2,8 @@ import createRoute from '../create';
 
 const loan = {
     name: 'loan',
+    title: '业务管理',
+    icon: 'ios-paper',
     router: [
         {
             path: '/verify-per',

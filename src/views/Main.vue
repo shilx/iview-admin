@@ -90,7 +90,7 @@
             </shrinkable-menu>
         </div>
         <div class="single-page-con" :style="{left: shrink?'60px':'200px'}">
-            <div class="main-header" >
+            <div class="main-header" :style="{left: shrink?'60px':'200px'}">
                 <div class="navicon-con">
                     <Button :style="{transform: 'rotateZ(' + (this.shrink ? '-90' : '0') + 'deg)'}" type="text" @click="toggleClick">
                         <Icon type="navicon" size="32"></Icon>

@@ -5,6 +5,7 @@ import Loan from './routers/loan.js';
 import Member from './routers/member.js';
 import Statistics from './routers/statistics.js';
 import System from './routers/system.js';
+import Util from '@/libs/util';
 
 // 不作为Main组件的子页面展示的页面单独写，如下
 export const loginRouter = {
@@ -72,18 +73,22 @@ export const otherRouter = {
 
 // 为每个路由对象设置从属
 let appRouters = [];
-[Example, Task, Loan, Member, Statistics, System].forEach(x => {
-    let routerName = x.name;
-    x.router.forEach(y => {
-        y.parent = routerName;
-        y.component = Main;
-        if (y.hasOwnProperty('children')) {
-            y.children.forEach(z => {
-                z.parent = routerName;
+[Example, Task, Loan, Member, Statistics, System].forEach(singleFile => {
+    // 顶级菜单路由
+    let routerName = singleFile.name;
+    singleFile.router.forEach(second => {
+        // 二级
+        second.parent = routerName;
+        // 父组件
+        second.component = Main;
+        if (second.hasOwnProperty('children')) {
+            second.children.forEach(third => {
+                // 三级
+                third.parent = routerName;
             });
         }
     });
-    appRouters.push(...x.router);
+    appRouters.push(...singleFile.router);
 });
 
 // 作为Main组件的子页面展示并且在左侧菜单显示的路由写在appRouter里
