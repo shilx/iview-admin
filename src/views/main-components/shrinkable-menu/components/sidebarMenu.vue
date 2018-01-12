@@ -3,7 +3,7 @@
 </style>
 
 <template>
-    <Menu ref="sideMenu" :active-name="$route.name" :open-names="openNames" :theme="menuTheme" width="auto" @on-select="changeMenu" accordion>
+    <Menu ref="sideMenu" :active-name="activeName" :open-names="openNames" :theme="menuTheme" width="auto" @on-select="changeMenu" accordion>
         <template v-for="item in menuList">
             <MenuItem v-if="item.children.length<=1" :name="item.children[0].name" :key="'menuitem' + item.name">
                 <Icon :type="item.icon" :size="iconSize" :key="'menuicon' + item.name"></Icon>
@@ -41,6 +41,11 @@ export default {
             type: Array
         }
     },
+    data(){
+        return{
+            activeName:''
+        }
+    },
     methods: {
         changeMenu (active) {
             this.$emit('on-change', active);
@@ -56,6 +61,7 @@ export default {
     updated () {
         // console.log(this.menuList)
         this.$nextTick(() => {
+            this.activeName = this.$route.name
             if (this.$refs.sideMenu) {
                 this.$refs.sideMenu.updateOpened();
             }

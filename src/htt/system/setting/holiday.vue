@@ -12,31 +12,12 @@
     <div>
         <Card :padding="0" :dis-hover="true">
             <div class="border-b">
-                <Form ref="formData" :model="formData" inline :show-message="false" class="sarch-form">
-                    <Row type="flex" justify="space-between">
-                        <Col>
-                            <FormItem prop="name" label="关键词：">
-                                <Input
-                                    v-model="formData.name"
-                                    style="width:102px;"></Input>
-                            </FormItem>
-                            <FormItem>
-                                <div slot="label">&nbsp;</div>
-                                <Button style="width: 82px; height: 34px" type="primary" @click="handleSubmit('formData')">查询</Button>
-                            </FormItem>
-                            <FormItem>
-                                <div slot="label">&nbsp;</div>
-                                <Button style="width: 82px; height: 34px" @click="handleSubmit('formData')">清空查询</Button>
-                            </FormItem>
-                        </Col>
-                        <Col class="text-r">
-                            <FormItem>
-                                <div slot="label">&nbsp;</div>
-                                <Button style="width: 82px; height: 34px" type="success" @click="add">添加模板</Button>
-                            </FormItem>
-                        </Col>
-                    </Row>
-                </Form>
+                <searcher-tools 
+                    :formItem="formItem"
+                    :formButton="formButton"
+                    :toolsButton="toolsButton"
+                    v-on:submit="onSubmit"
+                    v-on:add="onAdd"></searcher-tools>
             </div>
             <div class="pd16">
                 <Table stripe :columns="accountCol" :data="accountList" class="list"></Table>
@@ -47,14 +28,61 @@
 </template>
 
 <script>
+import searcherTools from '@/htt/components/searcher-tools';
 import holidayModal from './components/holiday-modal.vue';
 export default {
     name: '',
     components: {
+        searcherTools,
         holidayModal
     },
     data () {
         return {
+            formItem: [
+                {
+                    type: "input",
+                    key: "name",
+                    label: "关键词：",
+                    style: "width:102px;",
+                    value: ""
+                },
+                {
+                    type: "select",
+                    options: [
+                        {
+                            val: 1,
+                            text: "北京"
+                        },
+                        {
+                            val: 2,
+                            text: "上海"
+                        }
+                    ],
+                    key: "namemark",
+                    label: "模板对应产品标示：",
+                    style: "width:102px;",
+                    value: ""
+                }
+            ],
+            formButton: [
+                {
+                    type: "primary",
+                    text: "查询",
+                    handle: "submit"
+                },
+                {
+                    type: "",
+                    text: "清空",
+                    handle: "clear"
+                }
+            ],
+            toolsButton: [
+                {
+                    type: "success",
+                    text: "添加模板",
+                    handle: "add"
+                }
+            ],
             formData: {
 
             },
@@ -120,6 +148,12 @@ export default {
             ]);
         },
         add(){
+            this.$refs.holidayModal.open = true
+        },
+        onSubmit(data){
+            console.log('onSubmit', data)
+        },
+        onAdd(){
             this.$refs.holidayModal.open = true
         }
     },

@@ -206,7 +206,7 @@
                 }
             },
             handleNavmenuChange (val) {
-                this.navName = val || 'example'
+                this.navName = val
                 this.$store.commit('updateMenulist', this.navName);
             },
             handleSubmenuChange (val) {
@@ -226,6 +226,7 @@
         },
         watch: {
             '$route' (to) {
+                console.log('改变')
                 this.$store.commit('setCurrentPageName', to.name);
                 let pathArr = util.setCurrentPath(this, to.name);
                 if (pathArr.length > 2) {

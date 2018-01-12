@@ -22,6 +22,7 @@ new Vue({
     },
     mounted () {
         this.currentPageName = this.$route.name;
+        console.log('打开');
         // 显示打开的页面的列表
         this.$store.commit('setOpenedList');
         this.$store.commit('initCachepage');
