@@ -1,20 +1,12 @@
 <style lang="less" scoped>
-.border-b{
-    border-bottom: 1px solid #DDDEE1;
-    padding: 16px;
-}
-.ivu-form-item{
-    margin-bottom: 0;
-}
 </style>
 
 <template>
     <div>
         <Card :padding="0" :dis-hover="true">
             <div class="border-b">
-                <searcher-tools 
-                    :formItem="formItem"
-                    :formButton="formButton"
+                <searcher-tools
+                    :border="false"
                     :toolsButton="toolsButton"
                     v-on:submit="onSubmit"
                     v-on:add="onAdd"></searcher-tools>
@@ -38,44 +30,6 @@ export default {
     },
     data () {
         return {
-            formItem: [
-                {
-                    type: "input",
-                    key: "name",
-                    label: "关键词：",
-                    style: "width:102px;",
-                    value: ""
-                },
-                {
-                    type: "select",
-                    options: [
-                        {
-                            val: 1,
-                            text: "北京"
-                        },
-                        {
-                            val: 2,
-                            text: "上海"
-                        }
-                    ],
-                    key: "namemark",
-                    label: "模板对应产品标示：",
-                    style: "width:102px;",
-                    value: ""
-                }
-            ],
-            formButton: [
-                {
-                    type: "primary",
-                    text: "查询",
-                    handle: "submit"
-                },
-                {
-                    type: "",
-                    text: "清空",
-                    handle: "clear"
-                }
-            ],
             toolsButton: [
                 {
                     type: "success",

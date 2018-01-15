@@ -1,11 +1,5 @@
 <style lang="less" scoped>
-.border-b{
-    border-bottom: 1px solid #DDDEE1;
-    padding: 16px;
-}
-.ivu-form-item{
-    margin-bottom: 0;
-}
+
 </style>
 
 <template>
@@ -47,6 +41,7 @@
 </template>
 
 <script>
+import searcherTools from '@/htt/components/searcher-tools';
 import msgModal from './components/msg-modal.vue';
 export default {
     name: '',
