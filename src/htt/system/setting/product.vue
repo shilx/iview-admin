@@ -18,26 +18,12 @@
     <div>
         <Tabs type="card" :animated="false">
             <TabPane label="产品">
-                <Row type="flex" align="bottom" class="border-b">
-                    <Col span="12">
-                        <Form ref="accountForm" :model="accountForm" inline :show-message="false" class="sarch-form">
-                            <FormItem prop="name" label="产品类型：">
-                                <Select style="width: 126px" v-model="accountForm.name">
-                                    <Option value="beijing">New York</Option>
-                                    <Option value="shanghai">London</Option>
-                                    <Option value="shenzhen">Sydney</Option>
-                                </Select>
-                            </FormItem>
-                            <FormItem>
-                                <div slot="label">&nbsp;</div>
-                                <Button style="width: 82px; height: 34px" type="primary" @click="handleSubmit('accountForm')">查询</Button>
-                            </FormItem>
-                        </Form>
-                    </Col>
-                    <Col span="12" class="text-r">
-                        <Button style="width: 82px; height: 34px" type="success" @click="openProductModal">添加角色</Button>
-                    </Col>
-                </Row>
+                <searcher-tools
+                    :formItems="formItems"
+                    :formButton="formButton"
+                    :toolsButton="toolsButton"
+                    v-on:submit="onSubmit"
+                    v-on:add="openModal"></searcher-tools>
                 <div class="pd16">
                     <Table stripe :columns="accountCol" :data="accountList" class="list"></Table>
                 </div>
@@ -56,17 +42,48 @@
 </template>
 
 <script>
+import searcherTools from '@/htt/components/searcher-tools';
 import productModal from './components/product-modal.vue';
 export default {
     name: '',
     components: {
+        searcherTools,
         productModal
     },
     data () {
         return {
-            accountForm: {
-                name: '',
-            },
+            formItems: [{
+                type: "select",
+                list: [{
+                        val: 1,
+                        text: "北京"
+                    },{
+                        val: 2,
+                        text: "上海"
+                    }
+                ],
+                key: "type",
+                label: "产品类型",
+                style: "width:166px;",
+                value: ""
+            }],
+            formButton: [
+                {
+                    type: "primary",
+                    text: "查询",
+                    handle: "submit"
+                },{
+                    text: "清空查询",
+                    handle: "reset"
+                }
+            ],
+            toolsButton: [
+                {
+                    type: "success",
+                    text: "新增",
+                    handle: "add"
+                }
+            ],
             accountCol: [
                 {
                     title: '产品类型',
@@ -178,7 +195,10 @@ export default {
                 }, '删除')
             ]);
         },
-        openProductModal() {
+        onSubmit(data){
+            console.log('onSubmit', data)
+        },
+        openModal() {
             this.$refs.productModal.addModal = true
         },
         openTypeModal() {

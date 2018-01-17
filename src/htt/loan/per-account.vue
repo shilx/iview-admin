@@ -1,53 +1,17 @@
 <style lang="less" scoped>
-    
+    .mgt10{
+        margin-top: 10px
+    }
 </style>
 
 <template>
     <div>
-        <Card shadow>
-            <Form ref="accountForm" :model="accountForm" :rules="ruleInline" inline :show-message="false">
-                <FormItem prop="userId"  label="用户ID">
-                    <Input style="width: 86px;" type="text" v-model="accountForm.userId" placeholder="用户ID"></Input>
-                </FormItem>
-                <FormItem prop="name"  label="姓名">
-                    <Input style="width: 110px;" type="text" v-model="accountForm.name" placeholder="姓名"></Input>
-                </FormItem>
-                <FormItem prop="cellphone" label="手机号">
-                    <Input style="width: 100px;" v-model="accountForm.cellphone" placeholder="手机号"></Input>
-                </FormItem>
-                <FormItem prop="idNumber" label="身份证号码">
-                    <Input style="width: 170px;" v-model="accountForm.idNumber" placeholder="身份证号码"></Input>
-                </FormItem>
-                <FormItem prop="operatorName" label="操作员姓名">
-                    <Select style="width: 126px" v-model="accountForm.operatorName">
-                        <Option value="beijing">New York</Option>
-                        <Option value="shanghai">London</Option>
-                        <Option value="shenzhen">Sydney</Option>
-                    </Select>
-                </FormItem>
-                <FormItem prop="accountStatusCode" label="开户审核状态">
-                    <Select style="width: 110px;" v-model="accountForm.accountStatusCode">
-                        <Option value="">全部</Option>
-                        <Option value="0">未审核</Option>
-                        <Option value="1">通过</Option>
-                        <Option value="-1">未通过</Option>
-                    </Select>
-                </FormItem>
-                <FormItem prop="identityStatusCode" label="身份审核状态">
-                    <Select style="width: 110px;" v-model="accountForm.identityStatusCode">
-                        <Option value="">全部</Option>
-                        <Option value="0">未审核</Option>
-                        <Option value="1">通过</Option>
-                        <Option value="-1">未通过</Option>
-                    </Select>
-                </FormItem>
-                <br>
-                <FormItem>
-                    <Button style="width: 82px; height: 34px" type="primary" @click="handleSubmit('accountForm')" :loading="tableLoading">搜索</Button>
-                    <Button style="width: 82px; height: 34px;margin-left:8px" @click="handleReset('accountForm')">清空</Button>
-                </FormItem>
-            </Form>
-            <Table stripe :loading="tableLoading" :columns="accountCol" :data="accountList"></Table>
+        <Card shadow :padding="0">
+            <searcher-tools
+                :formItems="formItems"
+                :formButton="formButton"
+                v-on:submit="onSubmit"></searcher-tools>
+            <Table class="mgt10" stripe :loading="tableLoading" :columns="accountCol" :data="accountList"></Table>
             <Page
                 :total="pageTotal"
                 :current="pageCurrent"
@@ -68,72 +32,111 @@
 
 <script>
 import util from '@/libs/util';
+import searcherTools from '@/htt/components/searcher-tools';
 import VerVmodal from './components/verify-modal/index.vue';
 export default {
     components:{
+        searcherTools,
         VerVmodal
     },
     data () {
         return {
-            filter:{},
             tableLoading: true,
             pageTotal: 10,
             pageCurrent: 1,
             pageSize: 30,
-            accountForm: {
-                userId: '',
-                name: '',
-                cellphone: '',
-                idNumber: '',
-                operatorName: '',
-                accountStatusCode: '',
-                identityStatusCode: ''
-            },
-            ruleInline: {
-                userId: [
-                    {
-                        required: false,
-                        trigger: 'blur',
-                    }
-                ],
-                name: [
-                    {
-                        required: false,
-                        trigger: 'blur',
-                    }
-                ],
-                cellphone: [
-                    {
-                        required: false,
-                        trigger: 'blur',
-                        regexp: new RegExp(/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/)
-                    }
-                ],
-                idNumber: [
-                    {
-                        required: false,
-                        trigger: 'blur',
-                    }
-                ],
-                operatorName: [
-                    {
-                        required: false,
-                        trigger: 'change',
-                    }
-                ],
-                accountStatusCode: [
-                    {
-                        required: false,
-                        trigger: 'change',
-                    }
-                ],
-                identityStatusCode: [
-                    {
-                        required: false,
-                        trigger: 'change',
-                    }
-                ],
-            },
+            formItems: [{
+                    type: "input",
+                    key: "userId",
+                    label: "用户ID",
+                    style: "width: 86px;",
+                    value: ""
+                },{
+                    type: "input",
+                    key: "name",
+                    label: "姓名",
+                    style: "width: 110px;",
+                    value: ""
+                },{
+                    type: "input",
+                    key: "cellphone",
+                    label: "手机号",
+                    style: "width: 100px;",
+                    value: ""
+                },{
+                    type: "input",
+                    key: "idNumber",
+                    label: "身份证号码",
+                    style: "width: 170px;",
+                    value: ""
+                },{
+                    type: "select",
+                    list: [{
+                            val: 1,
+                            text: "beijing"
+                        },{
+                            val: 2,
+                            text: "shanghai"
+                        },{
+                            val: 3,
+                            text: "shenzhen"
+                        }
+                    ],
+                    key: "operatorName",
+                    label: "产品类型",
+                    style: "width:166px;",
+                    value: ""
+                },{
+                    type: "select",
+                    list: [{
+                            val: '',
+                            text: "全部"
+                        },{
+                            val: '0',
+                            text: "未审核"
+                        },{
+                            val: '1',
+                            text: "通过"
+                        },{
+                            val: '-1',
+                            text: "未通过"
+                        }
+                    ],
+                    key: "accountStatusCode",
+                    label: "产品类型",
+                    style: "width:166px;",
+                    value: ""
+                },{
+                    type: "select",
+                    list: [{
+                            val: '',
+                            text: "全部"
+                        },{
+                            val: '0',
+                            text: "未审核"
+                        },{
+                            val: '1',
+                            text: "通过"
+                        },{
+                            val: '-1',
+                            text: "未通过"
+                        }
+                    ],
+                    key: "identityStatusCode",
+                    label: "产品类型",
+                    style: "width:166px;",
+                    value: ""
+            }],
+            formButton: [
+                {
+                    type: "primary",
+                    text: "查询",
+                    handle: "submit"
+                },{
+                    text: "清空",
+                    handle: "reset"
+                }
+            ],
             accountCol: [
                 {
                     title: '会员ID',
@@ -234,7 +237,7 @@ export default {
             this.pageSize = pageSize
             this.getList()
         },
-        handleSubmit(name) {
+        onSubmit(name) {
             this.$refs[name].validate((valid) => {
                 if (valid) {
                     this.$Message.success('搜索成功!')
@@ -243,9 +246,6 @@ export default {
                     this.$Message.error('搜索失败!')
                 }
             })
-        },
-        handleReset (name) {
-            this.$refs[name].resetFields();
         },
         timeR(h, params) {
             return h('div',

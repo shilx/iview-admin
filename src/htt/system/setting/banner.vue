@@ -8,14 +8,9 @@
 <template>
     <div>
         <Card :padding="0" :dis-hover="true">
-            <div class="border-b">
-                <Row type="flex" justify="space-between">
-                    <Col></Col>
-                    <Col class="text-r">
-                        <Button type="success" @click="add">添加banner图片</Button>
-                    </Col>
-                </Row>
-            </div>
+            <searcher-tools
+                :toolsButton="toolsButton"
+                v-on:add="openModal"></searcher-tools>
             <div class="pd16">
                 <Table stripe :columns="accountCol" :data="accountList" class="list"></Table>
             </div>
@@ -25,17 +20,24 @@
 </template>
 
 <script>
+import searcherTools from '@/htt/components/searcher-tools';
 import bannerModal from './components/banner-modal.vue';
 export default {
     name: '',
     components: {
+        searcherTools,
         bannerModal
     },
     data () {
         return {
-            formData: {
-
-            },
+            toolsButton: [
+                {
+                    type: "success",
+                    text: "添加banner图片",
+                    style: "width:116px",
+                    handle: "add"
+                }
+            ],
             accountCol: [
                 {
                     title: '图片地址',
@@ -94,7 +96,7 @@ export default {
                 }, '删除'),
             ]);
         },
-        add(){
+        openModal(){
             this.$refs.bannerModal.open = true
         }
     },

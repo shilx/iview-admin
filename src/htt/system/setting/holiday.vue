@@ -4,13 +4,10 @@
 <template>
     <div>
         <Card :padding="0" :dis-hover="true">
-            <div class="border-b">
-                <searcher-tools
-                    :border="false"
-                    :toolsButton="toolsButton"
-                    v-on:submit="onSubmit"
-                    v-on:add="onAdd"></searcher-tools>
-            </div>
+            <searcher-tools
+                :toolsButton="toolsButton"
+                v-on:submit="onSubmit"
+                v-on:add="openModal"></searcher-tools>
             <div class="pd16">
                 <Table stripe :columns="accountCol" :data="accountList" class="list"></Table>
             </div>
@@ -37,9 +34,6 @@ export default {
                     handle: "add"
                 }
             ],
-            formData: {
-
-            },
             accountCol: [
                 {
                     title: '年月',
@@ -101,13 +95,10 @@ export default {
                 }, '删除'),
             ]);
         },
-        add(){
-            this.$refs.holidayModal.open = true
-        },
         onSubmit(data){
             console.log('onSubmit', data)
         },
-        onAdd(){
+        openModal(){
             this.$refs.holidayModal.open = true
         }
     },

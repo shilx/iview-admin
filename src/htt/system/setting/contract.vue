@@ -11,61 +11,12 @@
 <template>
     <div>
         <Card :padding="0" :dis-hover="true">
-            <div class="border-b">
-                <Form ref="formData" :model="formData" inline :show-message="false" class="sarch-form">
-                    <Row type="flex" justify="space-between">
-                        <Col>
-                            <FormItem prop="name" label="模板编号：">
-                                <Input
-                                    v-model="formData.name"
-                                    style="width:102px;"></Input>
-                            </FormItem>
-                            <FormItem prop="name" label="模板名称：">
-                                <Input
-                                    v-model="formData.name"
-                                    style="width:102px;"></Input>
-                            </FormItem>
-                            <FormItem prop="name" label="模板对应产品标示：">
-                                <Select style="width: 112px" v-model="formData.name">
-                                    <Option value="beijing">New York</Option>
-                                    <Option value="shanghai">London</Option>
-                                    <Option value="shenzhen">Sydney</Option>
-                                </Select>
-                            </FormItem>
-                            <FormItem prop="name" label="创建时间：">
-                                <DatePicker
-                                type="daterange"
-                                format="yyyy/MM/dd"
-                                :transfer="true"
-                                style="width: 200px">
-                            </DatePicker>
-                            </FormItem>
-                            <FormItem prop="name" label="更新时间：">
-                                <DatePicker
-                                type="daterange"
-                                format="yyyy/MM/dd"
-                                :transfer="true"
-                                style="width: 200px">
-                            </DatePicker>
-                            </FormItem>
-                            <FormItem>
-                                <div slot="label">&nbsp;</div>
-                                <Button style="width: 82px; height: 34px" type="primary" @click="handleSubmit('formData')">查询</Button>
-                            </FormItem>
-                            <FormItem>
-                                <div slot="label">&nbsp;</div>
-                                <Button style="width: 82px; height: 34px" @click="handleSubmit('formData')">清空查询</Button>
-                            </FormItem>
-                        </Col>
-                        <Col class="text-r">
-                            <FormItem>
-                                <div slot="label">&nbsp;</div>
-                                <Button style="width: 82px; height: 34px" type="success" @click="add">添加模板</Button>
-                            </FormItem>
-                        </Col>
-                    </Row>
-                </Form>
-            </div>
+            <searcher-tools
+                    :formItems="formItems"
+                    :formButton="formButton"
+                    :toolsButton="toolsButton"
+                    v-on:submit="onSubmit"
+                    v-on:add="openModal"></searcher-tools>
             <div class="pd16">
                 <Table stripe :columns="accountCol" :data="accountList" class="list"></Table>
             </div>
@@ -75,17 +26,44 @@
 </template>
 
 <script>
+import searcherTools from '@/htt/components/searcher-tools';
 import contractModal from './components/contract-modal.vue';
 export default {
     name: '',
     components: {
+        searcherTools,
         contractModal
     },
     data () {
         return {
-            formData: {
-
-            },
+            formItems: [{
+                type: "input",
+                key: "num",
+                label: "模板编号",
+                value: ""
+            },{
+                type: "input",
+                key: "name",
+                label: "模板名称",
+                value: ""
+            }],
+            formButton: [
+                {
+                    type: "primary",
+                    text: "查询",
+                    handle: "submit"
+                },{
+                    text: "清空查询",
+                    handle: "reset"
+                }
+            ],
+            toolsButton: [
+                {
+                    type: "success",
+                    text: "新增",
+                    handle: "add"
+                }
+            ],
             accountCol: [
                 {
                     title: 'ID',
@@ -198,7 +176,10 @@ export default {
                 ])
             ]);
         },
-        add(){
+        onSubmit(data){
+            console.log('onSubmit', data)
+        },
+        openModal(){
             this.$refs.contractModal.open = true
         }
     },

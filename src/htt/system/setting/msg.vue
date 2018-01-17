@@ -5,33 +5,12 @@
 <template>
     <div>
         <Card :padding="0" :dis-hover="true">
-            <div class="border-b">
-                <Form ref="formData" :model="formData" inline :show-message="false" class="sarch-form">
-                    <Row type="flex" justify="space-between">
-                        <Col>
-                            <FormItem prop="name" label="关键词：">
-                                <Input
-                                    v-model="formData.name"
-                                    style="width:102px;"></Input>
-                            </FormItem>
-                            <FormItem>
-                                <div slot="label">&nbsp;</div>
-                                <Button style="width: 82px; height: 34px" type="primary" @click="handleSubmit('formData')">查询</Button>
-                            </FormItem>
-                            <FormItem>
-                                <div slot="label">&nbsp;</div>
-                                <Button style="width: 82px; height: 34px" @click="handleSubmit('formData')">清空查询</Button>
-                            </FormItem>
-                        </Col>
-                        <Col class="text-r">
-                            <FormItem>
-                                <div slot="label">&nbsp;</div>
-                                <Button style="width: 82px; height: 34px" type="success" @click="add">添加模板</Button>
-                            </FormItem>
-                        </Col>
-                    </Row>
-                </Form>
-            </div>
+            <searcher-tools
+                :formItems="formItems"
+                :formButton="formButton"
+                :toolsButton="toolsButton"
+                v-on:submit="onSubmit"
+                v-on:add="openModal"></searcher-tools>
             <div class="pd16">
                 <Table stripe :columns="accountCol" :data="accountList" class="list"></Table>
             </div>
@@ -46,13 +25,35 @@ import msgModal from './components/msg-modal.vue';
 export default {
     name: '',
     components: {
+        searcherTools,
         msgModal
     },
     data () {
         return {
-            formData: {
-
-            },
+            formItems: [{
+                type: "input",
+                key: "name",// 字段名
+                label: "关键词",// 描述
+                style: "width:166px;",// label宽
+                value: ""// 默认值
+            }],
+            formButton: [
+                {
+                    type: "primary",
+                    text: "查询",
+                    handle: "submit"
+                },{
+                    text: "清空查询",
+                    handle: "reset"
+                }
+            ],
+            toolsButton: [
+                {
+                    type: "success",
+                    text: "添加模板",
+                    handle: "add"
+                }
+            ],
             accountCol: [
                 {
                     title: '消息编码',
@@ -122,7 +123,10 @@ export default {
                 }, '删除'),
             ]);
         },
-        add(){
+        onSubmit(data){
+            console.log('onSubmit', data)
+        },
+        openModal(){
             this.$refs.msgModal.open = true
         }
     },
