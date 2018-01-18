@@ -8,6 +8,7 @@
 [![](https://img.shields.io/travis/iview/iview-admin.svg?style=flat-square)](https://travis-ci.org/iview/iview-admin)
 [![vue](https://img.shields.io/badge/vue-2.5.13-brightgreen.svg?style=flat-square)](https://github.com/vuejs/vue)
 [![iview ui](https://img.shields.io/badge/iview-2.8.0-brightgreen.svg?style=flat-square)](https://github.com/iview/iview)
+[![npm](https://img.shields.io/npm/l/express.svg)]()
 
 
 ## 当前版本：v1.3.1
@@ -183,13 +184,17 @@ npm run build
 ![image](https://github.com/iview/iview-admin/raw/dev/github-gif/locking.gif)
 
 - 可收缩侧边栏
-![image](https://github.com/iview/iview-admin/raw/dev/github-gif/sidebarmenu.gif)s
+![image](https://github.com/iview/iview-admin/raw/dev/github-gif/sidebarmenu.gif)
 
 - 主题切换
 ![image](https://github.com/iview/iview-admin/raw/dev/github-gif/theme.gif)
 
 - 消息中心
 ![image](https://github.com/iview/iview-admin/raw/dev/github-gif/message.gif)
+
+### 💖💖 If you find this project helpful, maybe you can buy me a coffee. 💖💖
+![image](https://github.com/iview/iview-admin/raw/dev/github-gif/code.png)
+
 
 ## License
 [MIT](http://opensource.org/licenses/MIT)
