@@ -5,24 +5,58 @@ const member = {
     title: '会员管理',
     icon: 'ios-paper',
     router: [{
-        path: '/member',
+        path: '/archives',
         icon: 'person',
-        name: 'member',
-        title: '会员管理',
+        name: 'archives',
+        title: '用户档案',
         children: [
             {
-                path: 'member/loan',
-                title: '借款管理',
-                name: 'loan-manage',
+                path: 'manage',
+                title: '会员管理',
+                name: 'archives-manage',
                 icon: 'arrow-move',
-                component: createRoute('member/loan')
+                component: createRoute('member/archives/manage')
+            }
+        ]
+    }, {
+        path: '/user',
+        icon: 'person',
+        name: 'user',
+        title: '用户管理',
+        children: [
+            {
+                path: 'block',
+                title: '发牌管理',
+                name: 'block-manage',
+                icon: 'arrow-move',
+                component: createRoute('member/user/block')
             },
             {
-                path: 'member/overdue',
-                title: '逾期管理',
-                name: 'overdue-manage',
+                path: 'retrieve',
+                title: '找回支付密码申请',
+                name: 'retrieve-password',
                 icon: 'arrow-move',
-                component: createRoute('member/overdue')
+                component: createRoute('member/user/retrieve')
+            }
+        ]
+    }, {
+        path: '/other',
+        icon: 'person',
+        name: 'other',
+        title: '其它模块管理',
+        children: [
+            {
+                path: 'personal-loan',
+                title: '个人借款发布',
+                name: 'personal-loan',
+                icon: 'arrow-move',
+                component: createRoute('member/other/personal')
+            }, {
+                path: 'company-loan',
+                title: '企业借款发布',
+                name: 'company-loan',
+                icon: 'arrow-move',
+                component: createRoute('member/other/company')
             }
         ]
     }]

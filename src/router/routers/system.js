@@ -24,9 +24,9 @@ const system = {
                     component: createRoute('system/level/role')
                 },
                 {
-                    path: 'user',
+                    path: 'user-manage',
                     title: '用户管理',
-                    name: 'user',
+                    name: 'user-manage',
                     component: createRoute('system/level/user')
                 }
             ]
@@ -38,27 +38,27 @@ const system = {
             title: '排班管理',
             children: [
                 {
-                    path: 'person',
+                    path: 'person-manage',
                     title: '个人审核排班',
-                    name: 'schedule-person',
+                    name: 'person-manage',
                     component: createRoute('system/schedule/person')
                 },
                 {
-                    path: 'company',
+                    path: 'company-manage',
                     title: '企业审核排班',
-                    name: 'schedule-company',
+                    name: 'company-manage',
                     component: createRoute('system/schedule/company')
                 },
                 {
-                    path: 'overdue',
+                    path: 'overdue-manage',
                     title: '逾期排班',
-                    name: 'schedule-overdue',
+                    name: 'overdue-manage',
                     component: createRoute('system/schedule/overdue')
                 },
                 {
-                    path: 'kf',
+                    path: 'kf-manage',
                     title: '客服排班',
-                    name: 'schedule-kf',
+                    name: 'kf-manage',
                     component: createRoute('system/schedule/kf')
                 }
             ]
@@ -70,15 +70,15 @@ const system = {
             title: '账号管理',
             children: [
                 {
-                    path: 'info',
+                    path: 'info-manage',
                     title: '个人信息',
-                    name: 'info',
+                    name: 'info-manage',
                     component: createRoute('system/account/info')
                 },
                 {
-                    path: 'password',
+                    path: 'password-manage',
                     title: '密码修改',
-                    name: 'password',
+                    name: 'password-manage',
                     component: createRoute('system/account/password')
                 }
             ]
@@ -90,39 +90,39 @@ const system = {
             title: '设置管理',
             children: [
                 {
-                    path: 'product',
+                    path: 'product-set',
                     title: '产品设置',
-                    name: 'product',
+                    name: 'product-set',
                     component: createRoute('system/setting/product')
                 },
                 {
-                    path: 'contract',
+                    path: 'contract-set',
                     title: '合同模板设置',
-                    name: 'contract',
+                    name: 'contract-set',
                     component: createRoute('system/setting/contract')
                 },
                 {
-                    path: 'msg',
+                    path: 'msg-set',
                     title: '消息模板设置',
-                    name: 'msg',
+                    name: 'msg-set',
                     component: createRoute('system/setting/msg')
                 },
                 {
-                    path: 'holiday',
+                    path: 'holiday-set',
                     title: '假期管理设置',
-                    name: 'holiday',
+                    name: 'holiday-set',
                     component: createRoute('system/setting/holiday')
                 },
                 {
-                    path: 'banner',
+                    path: 'banner-set',
                     title: '首页banner设置',
-                    name: 'banner',
+                    name: 'banner-set',
                     component: createRoute('system/setting/banner')
                 },
                 {
-                    path: 'update',
+                    path: 'update-set',
                     title: '版本更新',
-                    name: 'update',
+                    name: 'update-set',
                     component: createRoute('system/setting/update')
                 }
             ]
