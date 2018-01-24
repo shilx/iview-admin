@@ -192,11 +192,14 @@ export default {
                 }
             ],
             accountList: [],
+            // 需要显示的tab将以动态组件的方式加载
             ModelComList:[
                 {
                     comName: 'realname',
+                    tabName: '实名开户详情'
                 },{
-                    comName: 'identity'
+                    comName: 'identity',
+                    tabName: '身份审核'
                 }
             ]
         }

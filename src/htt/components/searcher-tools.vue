@@ -183,19 +183,31 @@ export default {
     props: {
         formItems: {// 表单字段
             type: Array,
-            required: false
+            required: false,
+            default: ()=>{
+                return []
+            }
         },
         formButton: {// 表单按钮
             type: Array,
-            required: false
+            required: false,
+            default: ()=>{
+                return []
+            }
         },
         ruleValidate: {// 验证规则
             type: Object,
-            required: false
+            required: false,
+            default: ()=>{
+                return {}
+            }
         },
         toolsButton: {// 右侧按钮
             type: Array,
-            required: false
+            required: false,
+            default: ()=>{
+                return []
+            }
         },
     },
     data() {
