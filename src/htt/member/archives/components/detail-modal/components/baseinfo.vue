@@ -53,51 +53,51 @@
                 </div>
             </div>
             <Row type="flex" class="baseinfo-right">
-                <Col span="8">
+                <i-col span="8">
                     <label>账号性质：</label>
                     <span>中财员工</span>
                     <a>（切换）</a>
-                </Col>
-                <Col span="8">
+                </i-col>
+                <i-col span="8">
                     <label>入股贷资格：</label>
                     <span>是</span>
                     <a>（切换）</a>
-                </Col>
-                <Col span="8">
+                </i-col>
+                <i-col span="8">
                     <label>股权贷资格：</label>
                     <span>是</span>
                     <a>（切换）</a>
-                </Col>
-                <Col span="8">
+                </i-col>
+                <i-col span="8">
                     <label>注册时间：</label>
                     <span>2017-11-12 14:25:43</span>
-                </Col>
-                <Col span="8">
+                </i-col>
+                <i-col span="8">
                     <label>开户状态：</label>
                     <span>已通过</span>
                     <a>查看审核记录</a>
-                </Col>
-                <Col span="8">
+                </i-col>
+                <i-col span="8">
                     <label>开通借款功能：</label>
                     <span>已通过</span>
                     <a>查看审核记录</a>
-                </Col>
-                <Col span="8">
+                </i-col>
+                <i-col span="8">
                     <label>重传身份证状态：</label>
                     <span>已通过</span>
                     <a>查看审核记录</a>
-                </Col>
-                <Col span="8">
+                </i-col>
+                <i-col span="8">
                     <label>重传手持证件状态：</label>
                     <span>已通过</span>
                     <a>查看审核记录</a>
-                </Col>
-                <Col span="24"><label>
+                </i-col>
+                <i-col span="24"><label>
                     已开通产品认证：</label><span>
                     将帅贷、随心贷、股权贷、乐拍</span>
-                </Col>
+                </i-col>
                 <!-- 银行卡列表start -->
-                <Col
+                <i-col
                     span="24"
                     v-for="(item,index) in creditCard"
                     :key="index">
@@ -108,12 +108,12 @@
                             v-if="item.isDefault"
                             class="default-card"
                             >（默认）</span>
-                </Col>
+                </i-col>
                 <!-- 银行卡列表end -->
-                <Col span="24">
+                <i-col span="24">
                     <label>法律文书送达地址：</label>
                     <span>杭州市江干区庆春路1号</span>
-                </Col>
+                </i-col>
             </Row>
         </div>
     </Card>
@@ -121,25 +121,25 @@
 <script>
 export default {
     components: {
-        
+
     },
-    data() {
-        return{
+    data () {
+        return {
             creditCard: [
                 {
                     num: 6238478787876667777,
-                    name: "中国建设银行行长吴山支行",
+                    name: '中国建设银行行长吴山支行',
                     isDefault: true
-                },{
+                }, {
                     num: 6238478787876667777,
-                    name: "中国银行庆春支行",
+                    name: '中国银行庆春支行',
                     isDefault: false
                 }
             ]
-        }
+        };
     },
     methods: {
-        
-    },
-}
+
+    }
+};
 </script>

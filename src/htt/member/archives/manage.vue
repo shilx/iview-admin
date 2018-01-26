@@ -10,7 +10,7 @@
                 :formButton="formButton"
                 v-on:submit="onSubmit"
                 v-on:add="openModal"></searcher-tools>
-            <div class="pd16">
+            <div class="padding-16">
                 <Table stripe :columns="accountCol" :data="accountList" class="list"></Table>
             </div>
         </Card>
@@ -33,72 +33,72 @@ export default {
     data () {
         return {
             formItems: [{
-                type: "input",
-                key: "username",
-                label: "用户名",
-                style: "width:86px;",
-                value: ""
-            },{
-                type: "input",
-                key: "truename",
-                label: "姓名/企业名称",
-                style: "width:110px;",
-                value: ""
-            },{
-                type: "input",
-                key: "phone",
-                label: "手机",
-                style: "width:100px;",
-                value: ""
-            },{
-                type: "input",
-                key: "idcard",
-                label: "身份证号码/统一社会信用代码",
-                style: "width:169px;",
-                value: ""
+                type: 'input',
+                key: 'username',
+                label: '用户名',
+                style: 'width:86px;',
+                value: ''
+            }, {
+                type: 'input',
+                key: 'truename',
+                label: '姓名/企业名称',
+                style: 'width:110px;',
+                value: ''
+            }, {
+                type: 'input',
+                key: 'phone',
+                label: '手机',
+                style: 'width:100px;',
+                value: ''
+            }, {
+                type: 'input',
+                key: 'idcard',
+                label: '身份证号码/统一社会信用代码',
+                style: 'width:169px;',
+                value: ''
             }],
             formButton: [
                 {
-                    type: "primary",
-                    text: "查询",
-                    handle: "submit"
-                },{
-                    text: "清空",
-                    handle: "reset"
+                    type: 'primary',
+                    text: '查询',
+                    handle: 'submit'
+                }, {
+                    text: '清空',
+                    handle: 'reset'
                 }
             ],
             accountCol: [
                 {
                     title: '用户名（姓名）',
-                    key: 'resfz',
+                    key: 'resfz'
                 },
                 {
                     title: '身份证号码',
-                    key: 'rehandfz',
+                    key: 'rehandfz'
                 },
                 {
                     title: '手机号码',
-                    key: 'rephone',
+                    key: 'rephone'
                 },
                 {
                     title: '注册时间',
-                    key: 'loginunlock',
+                    key: 'loginunlock'
                 },
                 {
                     title: '开户时间',
-                    key: 'payun',
+                    key: 'payun'
                 },
                 {
                     title: '可用余额',
-                    key: 'balance',
+                    key: 'balance'
                 },
                 {
                     title: '冻结金额',
-                    key: 'freeze',
+                    key: 'freeze'
                 },
                 {
                     title: '状态',
-                    key: 'status',
+                    key: 'status'
                 },
                 {
                     title: '操作',
@@ -107,27 +107,27 @@ export default {
                 }
             ],
             accountList: [
-                {name:1,
-                resetpaypw:1,
-                resetloginpw:1,
-                resetq:1,
-                resfz:1,
-                rehandfz:1,
-                rephone:1,
-                loginunlock:1,
-                payun:1,
-                balance:1,
-                freeze:1,
-                status:1,
-                payun:1}
-            ],
-        }
+                {name: 1,
+                    resetpaypw: 1,
+                    resetloginpw: 1,
+                    resetq: 1,
+                    resfz: 1,
+                    rehandfz: 1,
+                    rephone: 1,
+                    loginunlock: 1,
+                    payun: 1,
+                    balance: 1,
+                    freeze: 1,
+                    status: 1,
+                    payuna: 1}
+            ]
+        };
     },
     computed: {
-        
+
     },
     methods: {
-        operatR(h, params) {
+        operatR (h, params) {
             return h('div', [
                 h('Button', {
                     props: {
@@ -136,8 +136,8 @@ export default {
                     },
                     on: {
                         click: () => {
-                            console.log(params)
-                            this.$refs.detailModal.open = true
+                            console.log(params);
+                            this.$refs.detailModal.open = true;
                         }
                     }
                 }, '查看'),
@@ -148,18 +148,18 @@ export default {
                     },
                     on: {
                         click: () => {
-                            this.$refs.callModal.open = true
+                            this.$refs.callModal.open = true;
                         }
                     }
-                }, '预约'),
+                }, '预约')
             ]);
         },
-        onSubmit(data){
-            console.log('onSubmit', data)
+        onSubmit (data) {
+            console.log('onSubmit', data);
         },
-        openModal(){
-            this.$refs.msgModal.open = true
+        openModal () {
+            this.$refs.msgModal.open = true;
         }
-    },
+    }
 };
 </script>

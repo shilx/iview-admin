@@ -6,7 +6,7 @@
             :transfer="true"
             style="width: 245px">
         </DatePicker>
-        <Tabs type="card" :animated="false" @on-click="tabsClick" class="pdt9">
+        <Tabs type="card" :animated="false" @on-click="tabsClick" class="padding-top-9">
             <TabPane name="1" label="还款提醒"></TabPane>
             <TabPane name="2" label="找回支付密码"></TabPane>
             <TabPane name="3" label="补足余额提醒"></TabPane>

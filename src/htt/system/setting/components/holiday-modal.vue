@@ -29,7 +29,7 @@
                     <Button style="width: 82px; height: 34px" type="primary" @click="add">添加</Button>
                 </Col>
             </Row>
-            <div class="pdt9">
+            <div class="padding-top-9">
                 <Table border :columns="columns5" :data="data5"></Table>
             </div>
         </div>

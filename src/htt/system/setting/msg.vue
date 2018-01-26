@@ -11,7 +11,7 @@
                 :toolsButton="toolsButton"
                 v-on:submit="onSubmit"
                 v-on:add="openModal"></searcher-tools>
-            <div class="pd16">
+            <div class="padding-16">
                 <Table stripe :columns="accountCol" :data="accountList" class="list"></Table>
             </div>
         </Card>

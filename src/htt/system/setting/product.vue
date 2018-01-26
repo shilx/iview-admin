@@ -24,12 +24,12 @@
                     :toolsButton="toolsButton"
                     v-on:submit="onSubmit"
                     v-on:add="openModal"></searcher-tools>
-                <div class="pd16">
+                <div class="padding-16">
                     <Table stripe :columns="accountCol" :data="accountList" class="list"></Table>
                 </div>
             </TabPane>
             <TabPane label="产品类型">
-                <div class="pd16">
+                <div class="padding-16">
                     <div class="pdb16 text-r">
                         <Button style="height: 34px" type="success" @click="openTypeModal">添加产品类型</Button>
                     </div>

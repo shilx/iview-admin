@@ -1,7 +1,7 @@
 <template>
     <schedule>
         <Tabs type="card" :animated="false" @on-click="tabsClick">
-            <TabPane name="1" label="逾期排班" class="pdt9">
+            <TabPane name="1" label="逾期排班" class="padding-top-9">
                 <Table stripe :columns="accountCol" :data="accountList"></Table>
             </TabPane>
         </Tabs>

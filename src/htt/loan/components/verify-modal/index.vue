@@ -100,31 +100,31 @@ export default {
                     beiz: '备注内容'
                 }
             ],
-            verifyForm:{
-                status: "正常",
-                log:'',
+            verifyForm: {
+                status: '正常',
+                log: ''
             },
-            record:{}
+            record: {}
         };
     },
-    created(){
+    created () {
 
     },
     methods: {
-        openModel(data) {
-            this.record = data
-            this.isOpen = true
+        openModel (data) {
+            this.record = data;
+            this.isOpen = true;
             this.$nextTick(function () {
                 this.comList.forEach(element => {
-                    this.$refs[element.comName][0].getInfo()
-                })
-            })
+                    this.$refs[element.comName][0].getInfo();
+                });
+            });
         },
-        confirm() {
-            this.isOpen = false
+        confirm () {
+            this.isOpen = false;
         },
-        cancel() {
-            this.isOpen = false
+        cancel () {
+            this.isOpen = false;
         }
     }
 };

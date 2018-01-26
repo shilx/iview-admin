@@ -5,11 +5,23 @@
 .origin{
     color: #fe0000;
 }
-.pdt9{
+.padding-bottom-8{
+    padding-bottom: 8px!important;
+}
+.padding-top-9{
     padding-top: 9px;
 }
-.pd16{
+.padding-top-16{
+    padding-top: 16px;
+}
+.padding-16{
     padding: 16px;
+}
+.ivu-input-wrapper.ivu-input-type{
+    width: 192px;
+    input[readonly]{
+        background-color: rgba(248,248,249,1);
+    }
 }
 html,body{
     width: 100%;
@@ -207,9 +219,6 @@ html,body{
             }
         }
     }
-    &-header{
-        
-    }
     .single-page-con{
         position: absolute;
         top: 128px;
@@ -235,29 +244,36 @@ html,body{
 .taglist-moving-animation-move{
     transition: transform .3s;
 }
-//审核弹框-tabs
+// tabs(.auth, .verify-modal)
+.ivu-tabs-bar{
+    margin-bottom: 0;
+}
+.tabs-content-border{
+    border-left: @tabs-bd;
+    border-right: @tabs-bd;
+    border-bottom: @tabs-bd;
+    background-color: white;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.tit{
+    padding-bottom: 17px;
+    font-size: 12px;
+}
+// 审核弹框
+// @/htt/loan/components/verfy-modal/index
 @tabs-bd: 1px solid #dddee1;
 @main-pd: 0 36px;
 @box:content;
-.ivu-tabs{
-    margin-bottom: 8px;
-    .ivu-tabs-bar{
-        margin-bottom: 0;
-    }
-    .ivu-tabs-content{
-        border-left: @tabs-bd;
-        border-right: @tabs-bd;
-        border-bottom: @tabs-bd;
-        background-color: white;
-    }
-}
 .verify-modal{
+    .ivu-tabs{
+        margin-bottom: 8px;
+        .ivu-tabs-content{
+            .tabs-content-border;
+        }
+    }
     .@{box}{
         padding: 24px 36px;
-        .tit{
-            padding-bottom: 17px;
-            font-size: 12px;
-        }
         .ivu-card-body{
             padding: 0;
         }
@@ -279,17 +295,17 @@ html,body{
         }
     }
 }
-//用户组管理
+// 用户组管理
 .user-group{
     .ivu-card-body{
         padding: 0;
     }
 }
-//系统设置弹框主体
+// 系统设置弹框主体
 .level-model{
     padding: 16px;
 }
-//排班管理
+// 排班管理
 .no-bd-tabs{
     .ivu-tabs-content{
         border: 0;

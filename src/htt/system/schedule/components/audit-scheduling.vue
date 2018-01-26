@@ -25,10 +25,10 @@
 <template>
     <div>
         <Tabs type="card" :animated="false">
-            <TabPane label="立即排班" class="pd16 no-bd-tabs">
+            <TabPane label="立即排班" class="padding-16 no-bd-tabs">
                 <slot></slot>
             </TabPane>
-            <TabPane label="预约排班" class="pd16">
+            <TabPane label="预约排班" class="padding-16">
                 <div class="reservation">
                     <Button type="success" size="large">添加预约排班</Button>
                 </div>
