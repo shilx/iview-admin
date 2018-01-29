@@ -7,16 +7,6 @@
         width: 140px;
         padding-left: 36px;
         flex: initial;
-        .avatar{
-            width: 80px;
-            height: 100px;
-            background-color: #D8D8D8;
-            border: 1px solid #979797;
-            img{
-                width: 100%;
-                height: 100%;
-            }
-        }
     }
     &-right{
         flex:1;
@@ -53,51 +43,51 @@
                 </div>
             </div>
             <Row type="flex" class="baseinfo-right">
-                <i-col span="8">
+                <Col span="8">
                     <label>账号性质：</label>
                     <span>中财员工</span>
                     <a>（切换）</a>
-                </i-col>
-                <i-col span="8">
+                </Col>
+                <Col span="8">
                     <label>入股贷资格：</label>
                     <span>是</span>
                     <a>（切换）</a>
-                </i-col>
-                <i-col span="8">
+                </Col>
+                <Col span="8">
                     <label>股权贷资格：</label>
                     <span>是</span>
                     <a>（切换）</a>
-                </i-col>
-                <i-col span="8">
+                </Col>
+                <Col span="8">
                     <label>注册时间：</label>
                     <span>2017-11-12 14:25:43</span>
-                </i-col>
-                <i-col span="8">
+                </Col>
+                <Col span="8">
                     <label>开户状态：</label>
                     <span>已通过</span>
                     <a>查看审核记录</a>
-                </i-col>
-                <i-col span="8">
+                </Col>
+                <Col span="8">
                     <label>开通借款功能：</label>
                     <span>已通过</span>
                     <a>查看审核记录</a>
-                </i-col>
-                <i-col span="8">
+                </Col>
+                <Col span="8">
                     <label>重传身份证状态：</label>
                     <span>已通过</span>
                     <a>查看审核记录</a>
-                </i-col>
-                <i-col span="8">
+                </Col>
+                <Col span="8">
                     <label>重传手持证件状态：</label>
                     <span>已通过</span>
                     <a>查看审核记录</a>
-                </i-col>
-                <i-col span="24"><label>
+                </Col>
+                <Col span="24"><label>
                     已开通产品认证：</label><span>
                     将帅贷、随心贷、股权贷、乐拍</span>
-                </i-col>
+                </Col>
                 <!-- 银行卡列表start -->
-                <i-col
+                <Col
                     span="24"
                     v-for="(item,index) in creditCard"
                     :key="index">
@@ -108,12 +98,12 @@
                             v-if="item.isDefault"
                             class="default-card"
                             >（默认）</span>
-                </i-col>
+                </Col>
                 <!-- 银行卡列表end -->
-                <i-col span="24">
+                <Col span="24">
                     <label>法律文书送达地址：</label>
                     <span>杭州市江干区庆春路1号</span>
-                </i-col>
+                </Col>
             </Row>
         </div>
     </Card>

@@ -9,23 +9,17 @@
     .text{
         margin-bottom: 16px;
     }
-    .id-card{
+    .avatar{
         img{
             width: 194px;
             height: 118px;
-            background-color: #D8D8D8;
-            border: 1px solid #979797;
-            display: inline-block;
-            +img{
-                margin-left: 14px;
-            }
         }
     }
 </style>
 
 <template>
     <div class="content">
-        <div class="id-card">
+        <div class="avatar">
             <div class="text">合同送达地址：中国大陆浙江省杭州市滨江区</div>
             <div class="text">手持证件照（<span class="origin">重传</span>）</div>
             <img src="" alt="">

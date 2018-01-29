@@ -17,10 +17,30 @@
 .padding-16{
     padding: 16px;
 }
+.display-none{
+    display: none;
+}
 .ivu-input-wrapper.ivu-input-type{
     width: 192px;
     input[readonly]{
         background-color: rgba(248,248,249,1);
+    }
+}
+.display-modal-footer{
+    .ivu-modal-footer{
+        .display-none;
+    }
+}
+.avatar{
+    img{
+        width: 80px;
+        height: 100px;
+        background-color: #D8D8D8;
+        border: 1px solid #979797;
+        display: inline-block;
+        +img{
+            margin-left: 14px;
+        }
     }
 }
 html,body{

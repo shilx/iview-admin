@@ -11,6 +11,12 @@
                     text-align: right;
                 }
             }
+            .avatar{
+                img{
+                    width: 194px;
+                    height: 118px;
+                }
+            }
         }
     }
 </style>
@@ -80,12 +86,60 @@
                     <TabPane label="收入拓展">收入拓展的内容</TabPane>
                 </Tabs>
                 <Tabs :animated="false">
-                    <TabPane label="结婚证">结婚证的内容</TabPane>
-                    <TabPane label="身份证+手持身份证">身份证+手持身份证的内容</TabPane>
+                    <TabPane label="结婚证">
+                        <div class="avatar">
+                            <img src="javascript:;" alt="">
+                            <img src="javascript:;" alt="">
+                        </div>
+                    </TabPane>
+                    <TabPane label="身份证+手持身份证">
+                        <div class="avatar">
+                            <img src="javascript:;" alt="">
+                            <img src="javascript:;" alt="">
+                        </div>
+                    </TabPane>
                 </Tabs>
             </div>
             <div v-else>
-                非展示模块
+                <Tabs :animated="false">
+                    <TabPane label="资产拓展">
+                        <Row class="padding-bottom-8">
+                            <Col span="12">
+                                <label>时间：</label>
+                                <Input readonly value="2008 06 - 2014 03"></Input>
+                            </Col>
+                            <Col span="12" class="text-c">
+                                <label>公司名称：</label>
+                                <Input readonly value="杭州XX科技公司"></Input>
+                            </Col>
+                        </Row>
+                        <Row class="padding-bottom-8">
+                            <Col span="12">
+                                <label>职务：</label>
+                                <Input readonly value="开发"></Input>
+                            </Col>
+                            <Col span="12" class="text-c">
+                                <label>其它说明：</label>
+                                <Input readonly value="无"></Input>
+                            </Col>
+                        </Row>
+                    </TabPane>
+                    <TabPane label="职业拓展">职业拓展的内容</TabPane>
+                </Tabs>
+                <Tabs :animated="false">
+                    <TabPane label="股权材料">
+                        <div class="avatar">
+                            <img src="javascript:;" alt="">
+                            <img src="javascript:;" alt="">
+                        </div>
+                    </TabPane>
+                    <TabPane label="房产材料">
+                        <div class="avatar">
+                            <img src="javascript:;" alt="">
+                            <img src="javascript:;" alt="">
+                        </div>
+                    </TabPane>
+                </Tabs>
             </div>
         </div>
     </div>

@@ -6,16 +6,10 @@
         margin-top: 24px;
         margin-bottom: 16px;
     }
-    .id-card{
+    .avatar{
         img{
             width: 194px;
             height: 118px;
-            background-color: #D8D8D8;
-            border: 1px solid #979797;
-            display: inline-block;
-            +img{
-                margin-left: 14px;
-            }
         }
     }
 </style>
@@ -64,7 +58,7 @@
                 <Col span="6">
                 </Col>
             </Row>
-            <div class="id-card">
+            <div class="avatar">
                 <div class="text">身份证正反面照片（<span class="origin">重传</span>）</div>
                 <img :src="userInfo.idPhoto1" alt="">
                 <img :src="userInfo.idPhoto2" alt="">

@@ -2,16 +2,6 @@
     .tit{
         font-size: 16px;
     }
-    .avatar{
-        width: 80px;
-        height: 100px;
-        background-color: #D8D8D8;
-        border: 1px solid #979797;
-        img{
-            width: 100%;
-            height: 100%;
-        }
-    }
     .info{
         .item-first{
             width: 140px;

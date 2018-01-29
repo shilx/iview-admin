@@ -27,7 +27,7 @@
 </style>
 <template>
     <Modal
-        class="detail-modal"
+        class="detail-modal display-modal-footer"
         v-model="open"
         title="会员详情"
         width="1112">
@@ -79,7 +79,7 @@
                 </component>
             </keep-alive>
             <p class="padding-16">已认证通过产品：随心贷、桃金贷</p>
-            <Card class="content history">
+            <Card class="content history"  :dis-hover="true">
                 <p class="tit">审核历史记录</p>
                 <Table :columns="histroyCol" :data="histroyData"></Table>
             </Card>
