@@ -25,11 +25,11 @@ const member = {
         title: '用户管理',
         children: [
             {
-                path: 'block',
+                path: 'blacklist',
                 title: '发牌管理',
-                name: 'block-manage',
+                name: 'blacklist-manage',
                 icon: 'arrow-move',
-                component: createRoute('member/user/block')
+                component: createRoute('member/user/blacklist')
             },
             {
                 path: 'retrieve',

@@ -14,13 +14,13 @@
                     <component :ref="com.comName" :is="com.comName" :record="record"></component>
                 </TabPane>
                 <TabPane label="工作日志记录" class="content">
-                    <p class="tit">工作历史记录</p>
+                    <p class="table-tit">工作历史记录</p>
                     <Table :columns="histroyCol" :data="histroyData"></Table>
                 </TabPane>
             </Tabs>
             <Form :model="verifyForm">
                 <Card class="content history">
-                    <p class="tit">审核历史记录</p>
+                    <p class="table-tit">审核历史记录</p>
                     <Table :columns="histroyCol" :data="histroyData"></Table>
                     <RadioGroup v-model="verifyForm.status">
                         <Radio label="正常"></Radio>
@@ -28,7 +28,7 @@
                     </RadioGroup>
                 </Card>
                 <Card class="content log">
-                    <p class="tit">工作日志</p>
+                    <p class="table-tit">工作日志</p>
                     <FormItem>
                         <Input v-model="verifyForm.log" type="textarea" style="width:534px" :autosize="{minRows: 5,maxRows: 5}" placeholder="请输入工作日志…"></Input>
                     </FormItem>

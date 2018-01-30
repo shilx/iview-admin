@@ -13,20 +13,20 @@
                 <Table stripe :columns="accountCol" :data="accountList" class="list"></Table>
             </div>
         </Card>
-        <call-modal ref="callModal"></call-modal>
+        <block-modal ref="blockModal"></block-modal>
         <detail-modal ref="detailModal"></detail-modal>
     </div>
 </template>
 
 <script>
 import searcherTools from '@/htt/components/searcher-tools';
-import callModal from './components/call-modal.vue';
-import detailModal from './components/detail-modal';
+import blockModal from './components/blacklist-modal/block';
+import detailModal from './components/blacklist-modal/detail';
 export default {
     name: '',
     components: {
         searcherTools,
-        callModal,
+        blockModal,
         detailModal
     },
     data () {
@@ -55,6 +55,21 @@ export default {
                 label: '身份证号码/统一社会信用代码',
                 style: 'width:169px;',
                 value: ''
+            }, {
+                type: 'select',
+                list: [
+                    {
+                        val: 1,
+                        text: '全部'
+                    }, {
+                        val: 2,
+                        text: '黑牌'
+                    }
+                ],
+                key: 'type',
+                label: '会员性质',
+                style: 'width:158px;',
+                value: ''
             }],
             formButton: [
                 {
@@ -72,7 +87,7 @@ export default {
                     key: 'resfz'
                 },
                 {
-                    title: '身份证号码',
+                    title: '身份证号码-统一社会信用代码',
                     key: 'rehandfz'
                 },
                 {
@@ -80,23 +95,15 @@ export default {
                     key: 'rephone'
                 },
                 {
-                    title: '注册时间',
+                    title: '逾期次数',
                     key: 'loginunlock'
                 },
                 {
-                    title: '开户时间',
+                    title: '发牌次数',
                     key: 'payun'
                 },
                 {
-                    title: '可用余额',
-                    key: 'balance'
-                },
-                {
-                    title: '冻结金额',
-                    key: 'freeze'
-                },
-                {
-                    title: '状态',
+                    title: '用户状态',
                     key: 'status'
                 },
                 {
@@ -115,8 +122,6 @@ export default {
                     rephone: 1,
                     loginunlock: 1,
                     payun: 1,
-                    balance: 1,
-                    freeze: 1,
                     status: 1,
                     payuna: 1}
             ]
@@ -147,10 +152,10 @@ export default {
                     },
                     on: {
                         click: () => {
-                            this.$refs.callModal.open = true;
+                            this.$refs.blockModal.open = true;
                         }
                     }
-                }, '预约')
+                }, '发牌')
             ]);
         },
         onSubmit (data) {

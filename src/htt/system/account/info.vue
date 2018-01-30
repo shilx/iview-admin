@@ -1,5 +1,5 @@
 <style lang="less" scoped>
-    .tit{
+    .table-tit{
         font-size: 16px;
     }
     .info{
@@ -36,7 +36,7 @@
 <template>
     <div class="info">
         <Card shadow>
-            <div slot="title" class="tit">基本资料</div>
+            <div slot="title" class="table-tit">基本资料</div>
             <Row type="flex">
                 <Col class="item-first">
                     <div class="avatar">

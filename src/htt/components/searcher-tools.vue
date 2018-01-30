@@ -122,125 +122,141 @@
     </div>
 </template>
 <script>
-const formItems = [{
-        type: "input",
-        key: "name",// 字段名
-        label: "关键词",// 描述
-        style: "width:102px;",// label宽
-        value: ""// 默认值
-    },{
-        type: "select",
-        list: [// 选项列表
-            {
-                val: 1,
-                text: "北京"
-            },{
-                val: 2,
-                text: "上海"
-            }
-        ],
-        key: "select",
-        label: "模板对应产品标示：",
-        style: "width:102px;",
-        value: ""
-    },{
-        type: "radio",
-        list: [// 选项列表
-            "北京",
-            "上海",
-        ],
-        key: "radio",
-        label: "模板对应产品标示：",
-        style: "width:102px;",
-        value: ""
-    },{
-        type: "checkbox",
-        list: [// 选项列表
-            "北京",
-            "上海",
-        ],
-        key: "checkbox",
-        label: "模板对应产品标示：",
-        style: "width:102px;",
-        value: ""
-    },{
-        type: "datePick",
-        range: Boolean,// 是否选择范围 true ? daterange : date
-        key: "date",// 字段名
-        label: "日期",// 描述
-        style: "width:102px;",
-        value: ""
-    },{
-        type: "timePicker",
-        range: Boolean,
-        key: "time",// 字段名
-        label: "时间",// 描述
-        style: "width:102px;",
-        value: ""
-    },
-]
+const exp = [{
+    type: 'input',
+    // 字段名
+    key: 'name',
+    // 描述
+    label: '关键词',
+    // label宽
+    style: 'width:102px;',
+    // 默认值
+    value: ''
+}, {
+    type: 'select',
+    // 选项列表
+    list: [
+        {
+            val: 1,
+            text: '北京'
+        }, {
+            val: 2,
+            text: '上海'
+        }
+    ],
+    key: 'select',
+    label: '模板对应产品标示：',
+    style: 'width:102px;',
+    value: ''
+}, {
+    type: 'radio',
+    // 选项列表
+    list: [
+        '北京',
+        '上海'
+    ],
+    key: 'radio',
+    label: '模板对应产品标示：',
+    style: 'width:102px;',
+    value: ''
+}, {
+    type: 'checkbox',
+    // 选项列表
+    list: [
+        '北京',
+        '上海'
+    ],
+    key: 'checkbox',
+    label: '模板对应产品标示：',
+    style: 'width:102px;',
+    value: ''
+}, {
+    type: 'datePick',
+    // 是否选择范围 true ? daterange : date
+    range: Boolean,
+    // 字段名
+    key: 'date',
+    // 描述
+    label: '日期',
+    style: 'width:102px;',
+    value: ''
+}, {
+    type: 'timePicker',
+    range: Boolean,
+    // 字段名
+    key: 'time',
+    // 描述
+    label: '时间',
+    style: 'width:102px;',
+    value: ''
+}
+];
 export default {
     props: {
-        formItems: {// 表单字段
+        // 表单字段
+        formItems: {
             type: Array,
             required: false,
-            default: ()=>{
-                return []
+            default: () => {
+                return [];
             }
         },
-        formButton: {// 表单按钮
+        // 表单按钮
+        formButton: {
             type: Array,
             required: false,
-            default: ()=>{
-                return []
+            default: () => {
+                return [];
             }
         },
-        ruleValidate: {// 验证规则
+        // 验证规则
+        ruleValidate: {
             type: Object,
             required: false,
-            default: ()=>{
-                return {}
+            default: () => {
+                return {};
             }
         },
-        toolsButton: {// 右侧按钮
+        // 右侧按钮
+        toolsButton: {
             type: Array,
             required: false,
-            default: ()=>{
-                return []
+            default: () => {
+                return [];
             }
-        },
-    },
-    data() {
-        return {
-            formData: {},
         }
     },
-    created(){
-        console.log(this.formItems instanceof Object)
+    data () {
+        return {
+            formData: {}
+        };
+    },
+    created () {
+        console.log(this.formItems instanceof Object);
     },
     methods: {
-        handleButton(funcName){
-            if(funcName === "reset"){
+        handleButton (funcName) {
+            if (funcName === 'reset') {
                 // 重置表单
                 this.$refs['seacherForm'].resetFields();
-            }else if(funcName === "submit"){
+            } else if (funcName === 'submit') {
                 this.$refs['seacherForm'].validate((valid) => {
                     if (valid) {
                         // 触发通信并携带数据
-                        console.log('触发通信', this.formData)
-                        this.$emit(funcName, this.formData)
+                        console.log('触发通信', this.formData);
+                        this.$emit(funcName, this.formData);
                         this.$Message.success('Success!');
                     } else {
                         this.$Message.error('Fail!');
                     }
-                })
-            }else{
-                this.$emit(funcName)
+                });
+            } else {
+                this.$emit(funcName);
             }
-        },
+        }
     },
-    mounted(){
-        
+    mounted () {
+
     }
-}
+};
 </script>

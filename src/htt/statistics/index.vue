@@ -39,7 +39,7 @@
             padding-left: 32px;
         }
         .left{
-            .tit{
+            .table-tit{
                 font-size:14px;
                 color:rgba(70,76,91,1);
                 padding-bottom: 16px;
@@ -105,7 +105,7 @@
                 <div class="chart">
                     <Row>
                         <Col span="12" class="left">
-                            <p class="tit">业务操作总次数</p>
+                            <p class="table-tit">业务操作总次数</p>
                             <div>
                                 <label>统计类型：</label>
                                 <Select v-model="formItem.select" style="width:96px;">
@@ -126,7 +126,7 @@
                 <div class="chart">
                     <Row>
                         <Col span="12" class="left">
-                            <p class="tit">业务操作次数</p>
+                            <p class="table-tit">业务操作次数</p>
                             <div>
                                 <label>时间：</label>
                                 <Select v-model="formItem.select" style="width:96px;">
@@ -145,7 +145,7 @@
                 <div class="chart">
                     <Row>
                         <Col span="12" class="left">
-                            <p class="tit">重置登录密码操作次数</p>
+                            <p class="table-tit">重置登录密码操作次数</p>
                         </Col>
                         <Col span="12" class="right"></Col>
                         <Col span="24" class="bottom">

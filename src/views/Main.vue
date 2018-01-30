@@ -118,7 +118,7 @@
     import lockScreen from './main-components/lockscreen/lockscreen.vue';
     import messageTip from './main-components/message-tip.vue';
     import themeSwitch from './main-components/theme-switch/theme-switch.vue';
-    import copyRight from '@/htt/copy-right'
+    import copyRight from '@/htt/copy-right';
     import Cookies from 'js-cookie';
     import util from '@/libs/util.js';
     
@@ -146,7 +146,7 @@
                 return this.$store.state.app.menuList;
             },
             pageTagsList () {
-                return this.$store.state.app.pageOpenedList;  // 打开的页面的页面对象
+                return this.$store.state.app.pageOpenedList; // 打开的页面的页面对象
             },
             avatorPath () {
                 return localStorage.avatorImgPath;
@@ -201,12 +201,12 @@
                         return true;
                     }
                 });
-                if (!openpageHasTag) {  //  解决关闭当前标签后再点击回退按钮会退到当前页时没有标签的问题
+                if (!openpageHasTag) { //  解决关闭当前标签后再点击回退按钮会退到当前页时没有标签的问题
                     util.openNewPage(this, name, this.$route.params || {}, this.$route.query || {});
                 }
             },
             handleNavmenuChange (val) {
-                this.navName = val
+                this.navName = val;
                 this.$store.commit('updateMenulist', this.navName);
             },
             handleSubmenuChange (val) {
@@ -226,7 +226,7 @@
         },
         watch: {
             '$route' (to) {
-                console.log('改变')
+                console.log('改变');
                 this.$store.commit('setCurrentPageName', to.name);
                 let pathArr = util.setCurrentPath(this, to.name);
                 if (pathArr.length > 2) {
@@ -236,7 +236,7 @@
                 localStorage.currentPageName = to.name;
             },
             lang () {
-                util.setCurrentPath(this, this.$route.name);  // 在切换语言时用于刷新面包屑
+                util.setCurrentPath(this, this.$route.name); // 在切换语言时用于刷新面包屑
             }
         },
         mounted () {
