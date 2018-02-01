@@ -20,17 +20,24 @@
 .display-none{
     display: none;
 }
+// 统一input样式
 .ivu-input-wrapper.ivu-input-type{
     width: 192px;
     input[readonly]{
         background-color: rgba(248,248,249,1);
     }
 }
+// 隐藏对话框底部
 .display-modal-footer{
     .ivu-modal-footer{
         .display-none;
     }
 }
+// 禁用边框圆角
+.no-border-radius{
+    border-radius: 0;
+}
+// 图片
 .avatar{
     img{
         width: 80px;
@@ -324,14 +331,9 @@ html,body{
 }
 // 系统设置弹框主体
 .level-model{
-    padding: 16px;
+    .padding-16;
 }
-// 排班管理
-.no-bd-tabs{
-    .ivu-tabs-content{
-        border: 0;
-    }
-}
+
 // 用户管理-发牌
 .blacklist-modal{
     padding-left: 24px;

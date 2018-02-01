@@ -25,10 +25,10 @@
 <template>
     <div>
         <Tabs type="card" :animated="false">
-            <TabPane label="立即排班" class="padding-16 no-bd-tabs">
+            <TabPane label="立即排班" class="padding-16 tabs-content-border no-border-radius">
                 <slot></slot>
             </TabPane>
-            <TabPane label="预约排班" class="padding-16">
+            <TabPane label="预约排班" class="padding-16 tabs-content-border no-border-radius">
                 <div class="reservation">
                     <Button type="success" size="large">添加预约排班</Button>
                 </div>
@@ -101,11 +101,11 @@ export default {
             accountCol: [
                 {
                     title: '日期',
-                    key: 'userId',
+                    key: 'userId'
                 },
                 {
                     title: '操作员',
-                    key: 'nickname',
+                    key: 'nickname'
                 },
                 {
                     title: '操作',
@@ -115,24 +115,24 @@ export default {
                 }
             ],
             accountList: [{
-                userId:1,
-                nickname:2,
+                userId: 1,
+                nickname: 2
             }],
             scheduleModal: false,
             formCustom: {
-                date:'',
-                account:[],
-                data:[],
-                loan:[],
-                certification:[]
+                date: '',
+                account: [],
+                data: [],
+                loan: [],
+                certification: []
             }
         };
     },
-    created() {
-        console.log(this.type)
+    created () {
+        console.log(this.type);
     },
     methods: {
-        operatR(h, params) {
+        operatR (h, params) {
             return h('div', [
                 h('Button', {
                     props: {
@@ -140,8 +140,8 @@ export default {
                     },
                     on: {
                         click: () => {
-                            console.log(params)
-                            this.scheduleModal = true
+                            console.log(params);
+                            this.scheduleModal = true;
                         }
                     }
                 }, '修改'),
@@ -151,14 +151,14 @@ export default {
                     },
                     on: {
                         click: () => {
-                            console.log(params)
+                            console.log(params);
                         }
                     }
                 }, '删除')
             ]);
         },
-        ok() {
-            this.scheduleModal = false
+        ok () {
+            this.scheduleModal = false;
         }
     }
 };

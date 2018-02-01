@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import schedule from './components/audit-scheduling'
+import schedule from './components/audit-scheduling';
 export default {
     name: 'schedule-person',
     components: {
@@ -27,27 +27,27 @@ export default {
                 },
                 {
                     title: '序号',
-                    key: 'number',
+                    key: 'number'
                 },
                 {
                     title: '员工',
-                    key: 'name',
+                    key: 'name'
                 },
                 {
                     title: '职位',
-                    key: 'position',
+                    key: 'position'
                 },
                 {
                     title: '手机号码',
-                    key: 'mobile',
+                    key: 'mobile'
                 },
                 {
                     title: '办公电话',
-                    key: 'tel',
+                    key: 'tel'
                 },
                 {
                     title: '状态',
-                    key: 'status',
+                    key: 'status'
                 }
             ],
             accountList: [{
@@ -56,16 +56,16 @@ export default {
                 position: 1,
                 mobile: 1,
                 tel: 1,
-                status: 1,
-            }],
+                status: 1
+            }]
         };
     },
     computed: {
-        
+
     },
     methods: {
-        tabsClick(tabName) {
-            console.log(tabName)
+        tabsClick (tabName) {
+            console.log(tabName);
         }
     }
 };

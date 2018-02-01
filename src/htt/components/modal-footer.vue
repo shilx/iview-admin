@@ -15,15 +15,15 @@ export default {
     data () {
         return {
 
-        }
+        };
     },
     methods: {
-        cancel(){
-            this.$emit("onCancel")
+        cancel () {
+            this.$emit('onCancel');
         },
-        confirm(){
-            this.$emit("onConfirm")
+        confirm () {
+            this.$emit('onConfirm');
         }
     }
-}
+};
 </script>

@@ -27,10 +27,10 @@ export default {
             copyStyle: {
                 // "position":"absolute"
             }
-        }
+        };
     },
     created () {
-        this.year = (new Date).getFullYear()
+        this.year = (new Date()).getFullYear();
     },
     mounted () {
         // this.$nextTick(() => {
@@ -56,5 +56,5 @@ export default {
         //     });
         // })
     }
-}
+};
 </script>

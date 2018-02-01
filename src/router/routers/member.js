@@ -32,11 +32,11 @@ const member = {
                 component: createRoute('member/user/blacklist')
             },
             {
-                path: 'retrieve',
+                path: 'password',
                 title: '找回支付密码申请',
-                name: 'retrieve-password',
+                name: 'password-manage',
                 icon: 'arrow-move',
-                component: createRoute('member/user/retrieve')
+                component: createRoute('member/user/password')
             }
         ]
     }, {

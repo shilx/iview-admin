@@ -118,7 +118,7 @@
     import lockScreen from './main-components/lockscreen/lockscreen.vue';
     import messageTip from './main-components/message-tip.vue';
     import themeSwitch from './main-components/theme-switch/theme-switch.vue';
-    import copyRight from '@/htt/copy-right';
+    import copyRight from '@/htt/components/copy-right';
     import Cookies from 'js-cookie';
     import util from '@/libs/util.js';
     
